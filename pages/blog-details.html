@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/blog-website" />
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
@@ -20,15 +21,89 @@
         <title>TITLE - Blog</title>
     </head>
     <body>
-        <!-- Header -->
-        <header class="main-header container">
+        <!-- MOBILE Header -->
+        <header class="main-header container mobile-header">
+            <a href="/" class="nav-link logo">Sofia F.</a>
+
+            <!-- Social Links -->
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="floating-link-container hide">
+                <div class="nav-links">
+                    <ul>
+                        <li>
+                            <a href="pages/about.html" class="nav-link"
+                                >about</a
+                            >
+                        </li>
+                        <li>
+                            <a href="pages/gallery.html" class="nav-link"
+                                >gallery</a
+                            >
+                        </li>
+                        <li>
+                            <a href="pages/blog.html" class="nav-link">blog</a>
+                        </li>
+                        <li>
+                            <a href="pages/contact.html" class="nav-link"
+                                >contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="social-links">
+                    <ul>
+                        <li>
+                            <a href="#" class="social-link">
+                                <img
+                                    src="assets/socials/facebook.png"
+                                    alt="Facebook"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <img
+                                    src="assets/socials/instagram.png"
+                                    alt="Instagram"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <img
+                                    src="assets/socials/x.png"
+                                    alt="X / Twitter"
+                                />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="auth-links">
+                    <a href="pages/login.html" class="auth-link"> Log in </a>
+                    <a href="pages/signup.html" class="auth-link signup"
+                        >Sign up</a
+                    >
+                </div>
+            </nav>
+        </header>
+
+        <!-- DESKTOP Header -->
+        <header class="main-header container desktop-header">
             <!-- Social Links -->
             <div class="social-links">
                 <ul>
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="/assets/socials/facebook.png"
+                                src="assets/socials/facebook.png"
                                 alt="Facebook"
                             />
                         </a>
@@ -36,17 +111,14 @@
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="/assets/socials/instagram.png"
+                                src="assets/socials/instagram.png"
                                 alt="Instagram"
                             />
                         </a>
                     </li>
                     <li>
                         <a href="#" class="social-link">
-                            <img
-                                src="/assets/socials/x.png"
-                                alt="X / Twitter"
-                            />
+                            <img src="assets/socials/x.png" alt="X / Twitter" />
                         </a>
                     </li>
                 </ul>
@@ -56,21 +128,23 @@
             <nav class="nav-links">
                 <ul>
                     <li>
-                        <a href="/pages/about.html" class="nav-link">about</a>
+                        <a href="pages/about.html" class="nav-link">about</a>
                     </li>
                     <li>
-                        <a href="/pages/gallery.html" class="nav-link"
+                        <a href="pages/gallery.html" class="nav-link"
                             >gallery</a
                         >
                     </li>
                     <li>
-                        <a href="/" class="nav-link logo">Sofia F.</a>
+                        <a href="blog-website" class="nav-link logo"
+                            >Sofia F.</a
+                        >
                     </li>
                     <li>
-                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                        <a href="pages/blog.html" class="nav-link">blog</a>
                     </li>
                     <li>
-                        <a href="/pages/contact.html" class="nav-link"
+                        <a href="pages/contact.html" class="nav-link"
                             >contact</a
                         >
                     </li>
@@ -78,13 +152,10 @@
             </nav>
 
             <div class="auth-links">
-                <a href="/pages/login.html" class="auth-link"> Log in </a>
-                <a href="/pages/signup.html" class="auth-link signup"
-                    >Sign up</a
-                >
+                <a href="pages/login.html" class="auth-link"> Log in </a>
+                <a href="pages/signup.html" class="auth-link signup">Sign up</a>
             </div>
         </header>
-
         <div class="page-thumb">
             <img src="/assets/trees.jpg" alt="Trees" />
         </div>
@@ -340,4 +411,3 @@
         });
     }
 </script>
-
