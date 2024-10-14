@@ -208,10 +208,12 @@ p {
     z-index: 99;
     opacity: 1;
     transition: all 0.25s ease;
+    pointer-events: all;
 }
 
 .floating-link-container.hide {
     opacity: 0;
+    pointer-events: none;
 }
 
 .mobile-header .nav-links ul {

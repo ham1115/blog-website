@@ -4,19 +4,17 @@ a {
 
 .signup-section {
     display: grid;
-    grid-template-columns: 40% 1fr;
-    height: 80vh;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     overflow: hidden;
     border-radius: 1rem;
+    grid-template-columns: 1fr;
 }
 
-.thumb-container {
-    position: relative;
+.video-container {
     position: relative;
     border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
     overflow: hidden;
+    height: 20rem;
 }
 
 .video-container::before {
@@ -25,11 +23,11 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     box-shadow: inset 0 0 500px rgba(0, 0, 0, 1);
     pointer-events: none;
     z-index: 9;
     filter: blur(5);
+    height: 100%;
 }
 
 .video-container video {
@@ -55,6 +53,7 @@ a {
     position: relative;
     background-color: #fff;
     overflow: hidden;
+    padding: 1rem;
 }
 
 form {
@@ -64,7 +63,6 @@ form {
     justify-content: center;
     gap: 1rem;
     z-index: 2;
-    min-width: 25rem;
 }
 
 form .title {
@@ -141,8 +139,8 @@ form .actions {
 }
 
 .shape.bottom {
-    right: 0;
-    bottom: 0;
+    right: -2rem;
+    bottom: -5rem;
 }
 
 .already-reg {
@@ -151,36 +149,36 @@ form .actions {
     justify-content: center;
     gap: 0.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 /* login */
 
 .login-section {
     background-image: url("/assets/clouds.jpg");
-    padding: 5rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 87vh;
+    padding: 1rem;
 }
 
 .login-section .form-container {
-    width: 32rem;
-    padding: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 1rem;
+    padding: 1rem;
 }
 
 .login-section .shape.top {
-    right: 0;
+    right: -5rem;
     top: 0;
 }
 
 .login-section .shape.bottom {
-    right: -25%;
     bottom: 0;
+    right: -15rem;
 }
 
 .error-msg {
@@ -198,4 +196,51 @@ form .actions {
 
 .modal-action-btn {
     margin: 1rem auto;
+}
+
+@media (min-width: 768px) {
+    .login-section {
+        height: auto;
+        min-height: 80vh;
+    }
+
+    form {
+        min-width: 25rem;
+    }
+
+    .login-section .form-container {
+        width: 32rem;
+        padding: 2rem;
+    }
+
+    .signup-section .form-container {
+        padding-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .signup-section {
+        grid-template-columns: 40% 1fr;
+        height: 80vh;
+    }
+
+    .video-container {
+        height: auto;
+    }
+}
+
+@media (min-width: 1440px) {
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1920px) {
+    .login-section .shape.top {
+        right: 0;
+    }
+
+    .login-section .shape.bottom {
+        right: -30%;
+    }
 }

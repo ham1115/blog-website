@@ -26,9 +26,9 @@ form .actions button {
 .blogs-grid {
     margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    align-items: stretch; /* Ensure all items stretch to the height of the tallest item */
+    align-items: stretch;
+    grid-template-columns: 1fr;
 }
 
 .blog {
@@ -59,6 +59,8 @@ form .actions button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .tag {
@@ -80,25 +82,26 @@ form .actions button {
 .blog .description {
     font-weight: 300;
     font-size: 1rem;
-    display: -webkit-box; /* For Safari */
+    display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5; /* Limit to 5 lines */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis */
-    max-height: 7.5em; /* Adjust based on line height (5 lines x 1.5em) */
-    line-height: 1.5em; /* Set line height */
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 7.5em;
+    line-height: 1.5em;
 }
 
 /* blog-container */
 
 .blog-container {
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     position: relative;
 }
 
 .blog-container .main-content {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    /* gap: 2rem; */
 }
 
 .blog-container .description {
@@ -108,21 +111,24 @@ form .actions button {
 .blog-container .info {
     justify-content: flex-start;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .blog-container .thumbnail {
-    width: 20rem;
+    /* width: 20rem; */
+    /* height: 30rem; */
+    width: auto;
     object-fit: cover;
-    height: 30rem;
+    height: 25rem;
 }
 
 .actions-btn {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
     position: absolute;
-    top: -2rem;
     right: 0;
+    top: -4rem;
 }
 
 .actions-btn button {
@@ -131,9 +137,41 @@ form .actions button {
 }
 
 .action-btn img {
-    width: 3rem;
+    width: 2.5rem;
 }
 
-.delete img {
-    width: 2.75rem;
+.delete-btn img {
+    width: 2.4rem;
+}
+
+@media (min-width: 768px) {
+    .blogs-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-container .main-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .actions-btn {
+        top: -3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+    .blogs-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+   
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1920px) {
 }
