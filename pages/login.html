@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <script src="/main.js" defer></script>
+        <title>TITLE - Log in</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="main-header container">
+            <!-- Social Links -->
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="/pages/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="/pages/gallery.html" class="nav-link"
+                            >gallery</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/" class="nav-link logo">Sofia F.</a>
+                    </li>
+                    <li>
+                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                    </li>
+                    <li>
+                        <a href="/pages/contact.html" class="nav-link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-links">
+                <a href="/pages/login.html" class="auth-link"> Log in </a>
+                <a href="/pages/signup.html" class="auth-link signup"
+                    >Sign up</a
+                >
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="login-section">
+                <div class="form-container">
+                    <form onsubmit="login(event)">
+                        <p class="title">Log in</p>
+
+                        <div class="form-group">
+                            <label for="label">Email</label>
+                            <input
+                                id="emailAddress"
+                                type="email"
+                                placeholder="Enter email address"
+                            />
+                        </div>
+                        <div class="form-group password form-group-password">
+                            <label for="label">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Enter password"
+                            />
+
+                            <img
+                                src="/assets/show.png"
+                                class="eye-icon show"
+                                alt="Show"
+                            />
+                        </div>
+
+                        <div class="error-msg hide">
+                            Incorrect email or password.
+                        </div>
+
+                        <div class="actions">
+                            <button
+                                type="submit"
+                                class="primary-btn-inverted submit-btn"
+                            >
+                                Log In
+                            </button>
+                            <div class="spinner"></div>
+                        </div>
+
+                        <div class="already-reg">
+                            <div>Don't have an account yet?</div>
+                            <a href="/pages/signup.html">Sign up</a>
+                        </div>
+                    </form>
+
+                    <img
+                        src="/assets/top-right-shape.png"
+                        class="shape top"
+                        alt="Shape"
+                    />
+                    <img
+                        src="/assets/bottom-shapes.png"
+                        class="shape bottom"
+                        alt="Shape"
+                    />
+                </div>
+            </section>
+        </main>
+    </body>
+
+    <script>
+        // Simple hash function using character codes
+        const simpleHash = (str) => {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash += str.charCodeAt(i);
+            }
+            return hash.toString(); // Convert to string to store
+        };
+
+        const login = (event) => {
+            event.preventDefault(); // Prevent default submit behavior (sending request to an API)
+
+            const email = document.getElementById("emailAddress");
+            const password = document.getElementById("password");
+
+            const errorMsg = document.querySelector(".error-msg");
+
+            if (!email.value || !password.value) {
+                errorMsg?.classList.remove("hide");
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+
+            if (!users.length) {
+                return;
+            }
+
+            // find an existing user in the users array
+            const existingUser = users.find(
+                (user) => user.email === email?.value
+            );
+
+            if (!existingUser) {
+                errorMsg?.classList.remove("hide");
+                return;
+            }
+
+            // check entered password if the email exists (registered)
+            if (existingUser.password !== simpleHash(password.value)) {
+                errorMsg?.classList.remove("hide");
+                return;
+            }
+
+            // remove error message
+            errorMsg?.classList.add("hide");
+
+            const submitBtn = document.querySelector(".submit-btn");
+            const spinner = document.querySelector(".spinner");
+
+            submitBtn.disabled = true;
+            spinner?.classList.add("show");
+
+            setTimeout(() => {
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                spinner?.classList.remove("show");
+
+                isSuccessfulSignUp = true;
+
+                // redirect to about page
+                window.location.href = "/pages/about.html";
+            }, 1500);
+        };
+    </script>
+</html>

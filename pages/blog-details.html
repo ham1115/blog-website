@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+        />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <link rel="stylesheet" href="/style/blog.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
+            defer
+        ></script>
+
+        <script src="/main.js" defer></script>
+        <title>TITLE - Blog</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="main-header container">
+            <!-- Social Links -->
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="/pages/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="/pages/gallery.html" class="nav-link"
+                            >gallery</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/" class="nav-link logo">Sofia F.</a>
+                    </li>
+                    <li>
+                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                    </li>
+                    <li>
+                        <a href="/pages/contact.html" class="nav-link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-links">
+                <a href="/pages/login.html" class="auth-link"> Log in </a>
+                <a href="/pages/signup.html" class="auth-link signup"
+                    >Sign up</a
+                >
+            </div>
+        </header>
+
+        <div class="page-thumb">
+            <img src="/assets/trees.jpg" alt="Trees" />
+        </div>
+
+        <main class="container" id="blog">
+            <div class="heading">
+                <a href="/pages/blog.html" class="page-back-link">Back</a>
+                <!-- <h1 class="page-title">blog details</h1> -->
+                <!-- <p class="page-subtitle">Tales from the Path Less Traveled</p> -->
+            </div>
+
+            <div class="blog-container">
+                <div class="actions-btn">
+                    <button
+                        type="button"
+                        id="openModalBtn"
+                        class="action-btn edit"
+                    >
+                        <img src="../assets/edit.png" alt="Edit" />
+                    </button>
+                    <button
+                        type="button"
+                        id="deleteBtn"
+                        class="action-btn delete-btn"
+                    >
+                        <img src="../assets/delete.png" alt="Delete" />
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div id="modal-popup" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="add-blog-title">Update Blog</p>
+
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="imageUrl">Thumbnail URL</label>
+                        <input
+                            id="imageUrl"
+                            type="text"
+                            placeholder="Enter image url"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blogTitle">Title</label>
+                        <input
+                            id="blogTitle"
+                            type="text"
+                            placeholder="Enter title"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tag">Tag</label>
+                        <input
+                            id="tag"
+                            type="text"
+                            placeholder="Enter tag (e.g., Travel, Experience)"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Write something..."
+                            rows="8"
+                        ></textarea>
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="primary-btn cancel-btn">
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            class="primary-btn-inverted submit-btn"
+                        >
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="modal-popup" class="modal">
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="add-blog-title">Confirm Delete Blog</p>
+
+                <div class="actions">
+                    <button type="button" class="primary-btn cancel-btn">
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        class="primary-btn-inverted submit-btn"
+                    >
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function formatDate(isoDateString) {
+        // Convert to Date object
+        const dateObject = new Date(isoDateString);
+
+        // Check if the date is valid
+        if (isNaN(dateObject)) {
+            throw new Error("Invalid date string");
+        }
+
+        // Options for formatting
+        const options = { year: "numeric", month: "long", day: "numeric" };
+
+        // Format the date
+        return dateObject.toLocaleDateString("en-US", options);
+    }
+
+    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+    const blogContainer = document.querySelector(".blog-container");
+
+    if (userDetails) {
+        const currentUrl = window.location.href;
+        const url = new URL(currentUrl);
+        const params = new URLSearchParams(url.search);
+
+        // Get the value of the 'id' parameter
+        const blogId = params.get("id");
+        const blogDetails = userDetails?.blogs.find(
+            (blog) => blog.id === blogId
+        );
+
+        const blogDetailsElement = document.createElement("div");
+        blogDetailsElement.classList.add("main-content");
+        blogDetailsElement.innerHTML = `
+                <img
+                class="thumbnail"
+                src="${blogDetails.imageUrl}"
+                alt="${blogDetails.title}"
+            />
+            <div>
+                <p class="title">
+                   ${blogDetails.title}
+                </p>
+
+                <div class="info">
+                    <div class="tag">${blogDetails.tag}</div>
+                    <div class="date">${formatDate(blogDetails.createdAt)}</div>
+                </div>
+
+                <p class="description">
+                    ${blogDetails.description}
+                </p>
+            </div>
+
+    `;
+
+        blogContainer.appendChild(blogDetailsElement);
+
+        const imageUrl = document.querySelector("#imageUrl");
+        const blogTitle = document.querySelector("#blogTitle");
+        const tag = document.querySelector("#tag");
+        const description = document.querySelector("#description");
+
+        imageUrl.value = blogDetails.imageUrl;
+        blogTitle.value = blogDetails.title;
+        tag.value = blogDetails.tag;
+        description.value = blogDetails.description;
+
+        const updateBlogBtn = document.querySelector(".submit-btn");
+        updateBlogBtn?.addEventListener("click", (e) => {
+            // update details on localstorage
+            const updatedBlog = {
+                ...blogDetails,
+                title: blogTitle.value,
+                imageUrl: imageUrl.value,
+                description: description.value,
+                tag: tag.value,
+            };
+
+            const userBlogs = userDetails?.blogs.map((blog) => {
+                if (blog.id === blogId) {
+                    return updatedBlog;
+                }
+
+                return blog;
+            });
+
+            const newUserDetails = {
+                ...userDetails,
+                blogs: [...userBlogs],
+            };
+
+            localStorage.setItem("userDetails", JSON.stringify(newUserDetails));
+
+            window.location.reload();
+        });
+
+        const deleteBlogBtn = document.querySelector(".delete-btn");
+        deleteBlogBtn?.addEventListener("click", (e) => {
+            Swal.fire({
+                title: "Confirm Delete",
+                text: "You won't be able to revert this action.",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+                cancelButtonText: "Cancel",
+                customClass: {
+                    confirmButton: "confirm-button",
+                    cancelButton: "cancel-button",
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Blog has been successfully deleted.", // Display the data from the first modal
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((res) => {
+                        if (res.isConfirmed || res.isDismissed) {
+                            const userBlogs = userDetails?.blogs.filter(
+                                (blog) => {
+                                    return blog.id !== blogId;
+                                }
+                            );
+                            const newUserDetails = {
+                                ...userDetails,
+                                blogs: [...userBlogs],
+                            };
+                            localStorage.setItem(
+                                "userDetails",
+                                JSON.stringify(newUserDetails)
+                            );
+                            window.location.href = "/pages/blog.html";
+                        }
+                    });
+                }
+            });
+        });
+    }
+</script>
+

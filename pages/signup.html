@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+        />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <script src="/main.js" defer></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
+            defer
+        ></script>
+        <title>TITLE - Sign up</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="main-header container">
+            <!-- Social Links -->
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="/pages/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="/pages/gallery.html" class="nav-link"
+                            >gallery</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/" class="nav-link logo">Sofia F.</a>
+                    </li>
+                    <li>
+                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                    </li>
+                    <li>
+                        <a href="/pages/contact.html" class="nav-link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-links">
+                <a href="/pages/login.html" class="auth-link"> Log in </a>
+                <a href="/pages/signup.html" class="auth-link signup"
+                    >Sign up</a
+                >
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="signup-section">
+                <div class="thumb-container video-container">
+                    <video autoplay loop muted playsinline>
+                        <source
+                            src="/assets/videos/paint.mp4"
+                            type="video/mp4"
+                        />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- <img src="images/signup.png" alt="Creative Woman" class="illustration" /> -->
+                </div>
+
+                <div class="form-container">
+                    <form onsubmit="signup(event)">
+                        <p class="title">Sign up</p>
+
+                        <div class="form-group">
+                            <label for="label">Username</label>
+                            <input
+                                id="username"
+                                type="text"
+                                placeholder="Enter username"
+                            />
+                            <div class="error-msg" id="error-username"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="label">Email</label>
+                            <input
+                                type="email"
+                                id="emailAddress"
+                                placeholder="Enter email address"
+                            />
+                            <div class="error-msg" id="error-email"></div>
+                        </div>
+                        <div class="form-group password form-group-password">
+                            <label for="label">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Enter password"
+                            />
+
+                            <img
+                                src="/assets/show.png"
+                                class="eye-icon show"
+                                alt="Show"
+                            />
+
+                            <div class="error-msg" id="error-password"></div>
+                        </div>
+                        <div
+                            class="form-group password form-group-confirm-password"
+                        >
+                            <label for="label">Confirm Password</label>
+                            <input
+                                id="confirm-password"
+                                type="password"
+                                placeholder="Confirm Password"
+                            />
+
+                            <img
+                                src="/assets/show.png"
+                                class="eye-icon show"
+                                alt="Show"
+                            />
+
+                            <div
+                                class="error-msg"
+                                id="error-confirm-password"
+                            ></div>
+                        </div>
+
+                        <div class="form-group-row terms">
+                            <div class="form-group-row">
+                                <input id="terms" type="checkbox" />
+                                <label for="terms">
+                                    I agree to the
+                                    <a href="/privacy">
+                                        Privacy and Consumer Policy
+                                    </a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="error-msg" id="error-terms"></div>
+
+                        <div class="actions">
+                            <button
+                                type="submit"
+                                class="primary-btn-inverted submit-btn"
+                            >
+                                Sign up
+                            </button>
+                            <div class="spinner"></div>
+                        </div>
+
+                        <div class="already-reg">
+                            <div>Already Registered?</div>
+                            <a href="/pages/login.html">Log In</a>
+                        </div>
+                    </form>
+
+                    <img
+                        src="/assets/top-right-shape.png"
+                        class="shape top"
+                        alt="Shape"
+                    />
+                    <img
+                        src="/assets/bottom-shapes.png"
+                        class="shape bottom"
+                        alt="Shape"
+                    />
+                </div>
+            </section>
+        </main>
+
+        <!-- <div id="modal-popup" class="modal">
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="modal-title success">Successfully Signed Up!</p>
+                <p class="modal-desc">
+                    Your account has been successfully created.
+                </p>
+
+                <button
+                    class="primary-btn-inverted modal-action-btn"
+                    data-action="login"
+                    type="button"
+                >
+                    Log in
+                </button>
+            </div>
+        </div> -->
+    </body>
+    <script>
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Simple hash function using character codes
+        const simpleHash = (str) => {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash += str.charCodeAt(i);
+            }
+            return hash.toString(); // Convert to string to store
+        };
+
+        const signup = (event) => {
+            event.preventDefault(); // Prevent default submit behavior (sending request to an API)
+
+            let errorCount = 0; // Count of errors
+            const username = document.getElementById("username");
+            const email = document.getElementById("emailAddress");
+            const password = document.getElementById("password");
+            const confirmPassword = document.getElementById("confirm-password");
+            const terms = document.getElementById("terms");
+
+            // Error message elements
+            const errorUsername = document.querySelector("#error-username");
+            const errorEmail = document.querySelector("#error-email");
+            const errorPassword = document.querySelector("#error-password");
+            const errorConfirmPassword = document.querySelector(
+                "#error-confirm-password"
+            );
+            const errorTerms = document.querySelector("#error-terms");
+
+            // Function to display error messages
+            function showError(element, message) {
+                element.textContent = message;
+                errorCount++;
+            }
+
+            // Function to clear error messages
+            function clearError(element) {
+                element.textContent = "";
+            }
+
+            // Validate username
+            if (!username.value) {
+                showError(errorUsername, "Username is required.");
+            } else {
+                clearError(errorUsername);
+            }
+
+            // Validate email
+            if (!email.value) {
+                showError(errorEmail, "Email is required.");
+            } else {
+                clearError(errorEmail);
+            }
+
+            // Validate email
+            if (!email.value) {
+                showError(errorEmail, "Email is required.");
+            } else {
+                clearError(errorEmail);
+            }
+
+            const existingUser = users.find(
+                (user) => user.email === email?.value
+            );
+
+            if (existingUser) {
+                showError(errorEmail, "Email already exists.");
+            } else {
+                clearError(errorEmail);
+            }
+
+            // Validate password
+            if (!password.value) {
+                showError(errorPassword, "Password is required.");
+            } else if (password.value.length < 8) {
+                showError(
+                    errorPassword,
+                    "Password must be at least 8 characters long."
+                );
+            } else {
+                clearError(errorPassword);
+            }
+
+            // Validate confirm password
+            if (
+                !confirmPassword.value ||
+                confirmPassword.value !== password.value
+            ) {
+                showError(errorConfirmPassword, "Passwords don't match.");
+            } else {
+                clearError(errorConfirmPassword);
+            }
+
+            // Validate terms
+            if (!terms.checked) {
+                showError(
+                    errorTerms,
+                    "You must agree to the Privacy and Consumer Policy to proceed."
+                );
+            } else {
+                clearError(errorTerms);
+            }
+
+            // If there are any errors, stop the submission
+            if (errorCount > 0) {
+                return;
+            }
+
+            // Submit form ----------------------
+
+            // Hash the password using the simple hash function
+            const hashedPassword = simpleHash(password.value);
+
+            const newUser = {
+                password: hashedPassword,
+                username: username.value,
+                email: email.value,
+            };
+
+            // Store user data as key-value pair in LocalStorage
+            localStorage.setItem("userDetails", JSON.stringify(newUser));
+
+            const existingUsers =
+                JSON.parse(localStorage.getItem("users")) || [];
+            existingUsers.push(newUser);
+
+            // Store user data as key-value pair in LocalStorage
+            localStorage.setItem("users", JSON.stringify(existingUsers));
+
+            const submitBtn = document.querySelector(".submit-btn");
+            const spinner = document.querySelector(".spinner");
+
+            submitBtn.disabled = true;
+            spinner?.classList.add("show");
+
+            setTimeout(() => {
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                spinner?.classList.remove("show");
+
+                Swal.fire({
+                    title: "Success!",
+                    text: "You have successfully registered.",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((res) => {
+                    if (res.isConfirmed || res.isDismissed) {
+                        window.location.href = "/pages/login.html";
+                    }
+                });
+            }, 1500);
+        };
+    </script>
+</html>

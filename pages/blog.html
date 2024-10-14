@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <link rel="stylesheet" href="/style/blog.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <script src="/main.js" defer></script>
+        <title>TITLE - Blog</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="main-header container">
+            <!-- Social Links -->
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="social-link">
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="/pages/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="/pages/gallery.html" class="nav-link"
+                            >gallery</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/" class="nav-link logo">Sofia F.</a>
+                    </li>
+                    <li>
+                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                    </li>
+                    <li>
+                        <a href="/pages/contact.html" class="nav-link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-links">
+                <a href="/pages/login.html" class="auth-link"> Log in </a>
+                <a href="/pages/signup.html" class="auth-link signup"
+                    >Sign up</a
+                >
+            </div>
+        </header>
+
+        <div class="page-thumb">
+            <img src="/assets/trees.jpg" alt="Trees" />
+        </div>
+
+        <main class="container" id="blog">
+            <div class="heading">
+                <h1 class="page-title">blog</h1>
+                <p class="page-subtitle">Tales from the Path Less Traveled</p>
+            </div>
+
+            <button id="openModalBtn" class="primary-btn mt-4">Add Blog</button>
+
+            <div class="blogs-grid"></div>
+        </main>
+
+        <div id="modal-popup" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="add-blog-title">Add Blog</p>
+
+                <form onsubmit="submitBlog(event)">
+                    <div class="form-group">
+                        <label for="imageUrl">Thumbnail URL</label>
+                        <input
+                            id="imageUrl"
+                            type="text"
+                            placeholder="Enter image url"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blogTitle">Title</label>
+                        <input
+                            id="blogTitle"
+                            type="text"
+                            placeholder="Enter title"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tag">Tag</label>
+                        <input
+                            id="tag"
+                            type="text"
+                            placeholder="Enter tag (e.g., Travel, Experience)"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Write something..."
+                            rows="8"
+                        ></textarea>
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="primary-btn cancel-btn">
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            class="primary-btn-inverted submit-btn add-blog-btn"
+                        >
+                            Create
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const imageUrl = document.querySelector("#imageUrl");
+        const blogTitle = document.querySelector("#blogTitle");
+        const tag = document.querySelector("#tag");
+        const description = document.querySelector("#description");
+
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
+        function formatDate(isoDateString) {
+            // Convert to Date object
+            const dateObject = new Date(isoDateString);
+
+            // Check if the date is valid
+            if (isNaN(dateObject)) {
+                throw new Error("Invalid date string");
+            }
+
+            // Options for formatting
+            const options = { year: "numeric", month: "long", day: "numeric" };
+
+            // Format the date
+            return dateObject.toLocaleDateString("en-US", options);
+        }
+
+        const displayBlogs = (blogs = []) => {
+            if (blogs.length > 0) {
+                const blogsContainer = document.querySelector(".blogs-grid");
+
+                blogs.forEach((blog) => {
+                    const { id, title, imageUrl, tag, description, createdAt } =
+                        blog;
+
+                    const formattedDate = formatDate(createdAt);
+
+                    const newBlog = document.createElement("a");
+                    newBlog.classList.add("blog");
+                    newBlog.href = `/pages/blog-details.html?id=${id}`;
+                    newBlog.innerHTML = `
+               <div>
+                    <img
+                        class="thumbnail"
+                        src="${imageUrl}"
+                        alt="${title}"
+                    />
+    
+                    <div class="text-content">
+                        <div class="info">
+                            <div class="tag">${tag}</div>
+                            <div class="date">${formattedDate}</div>
+                        </div>
+    
+                        <div class="title">${title}</div>
+    
+                        <p class="description">
+                           ${description}
+                        </p>
+                    </div>
+                </div>
+            `;
+
+                    blogsContainer.appendChild(newBlog);
+                });
+            } else {
+                // No blogs yet
+            }
+        };
+
+        const submitBlog = (e) => {
+            e.preventDefault();
+
+            // TODO: validations
+
+            const newBlog = {
+                id: Math.random().toString(),
+                title: blogTitle.value,
+                imageUrl: imageUrl.value,
+                description: description.value,
+                tag: tag.value,
+                createdAt: new Date(),
+            };
+
+            const userBlogs = userDetails?.blogs || [];
+            userBlogs?.push(newBlog);
+
+            const newUserDetails = {
+                ...userDetails,
+                blogs: [...userBlogs],
+            };
+
+            localStorage.setItem("userDetails", JSON.stringify(newUserDetails));
+
+            window.location.reload();
+        };
+
+        displayBlogs(userDetails?.blogs || []);
+    </script>
+</html>
