@@ -144,7 +144,7 @@ p {
     display: block;
 }
 
-.log-out-link{
+.log-out-link {
     display: none;
 }
 
@@ -366,6 +366,66 @@ p {
     transform: translateY(-1px);
 }
 
+/* footer */
+.main-footer {
+    background-color: #e0c8c6;
+    margin-top: 15rem;
+}
+
+.main-footer .grid-images {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: -10rem;
+    display: grid;
+    gap: 1rem;
+    background-color: #f6f3f0;
+    padding: 1rem;
+    border-radius: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.main-footer .grid-images img {
+    height: 10rem;
+}
+.main-footer .links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.footer-links ul {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+}
+.footer-links a {
+    color: #333333;
+    font-family: "Lora", serif;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: all 0.25s ease;
+}
+.footer-links a:hover {
+    transform: translateY(-1px);
+}
+
+.main-footer .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.credits {
+    font-size: 1rem;
+}
+
 @media (min-width: 768px) {
     .container {
         padding: 2rem;
@@ -374,6 +434,15 @@ p {
 
     .nav-links ul {
         gap: 2rem;
+    }
+
+    .main-footer .grid-images {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .main-footer .grid-images img {
+        height: 15rem;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
@@ -384,6 +453,10 @@ p {
 
     .logo {
         font-size: 2.5rem;
+    }
+
+    .main-footer .bottom {
+        flex-direction: row;
     }
 }
 
@@ -404,5 +477,9 @@ p {
 @media (min-width: 1920px) {
     .container {
         padding: 2rem 15rem !important;
+    }
+
+    .main-footer .grid-images img {
+        height: 25rem;
     }
 }

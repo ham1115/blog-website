@@ -325,6 +325,75 @@
             </div>
         </div>
     </body>
+
+    <footer class="main-footer container">
+        <div class="grid-images">
+            <img src="/assets/footer-img-1.png" alt="Image 1" />
+            <img src="/assets/footer-img-4.png" alt="Image 4" />
+            <img src="/assets/footer-img-3.png" alt="Image 3" />
+            <img src="/assets/footer-img-2.png" alt="Image 2" />
+        </div>
+
+        <div class="links-container">
+            <a href="/blog-website/" class="nav-link logo">InkWell</a>
+            <nav class="footer-links">
+                <ul>
+                    <li><a href="pages/about.html">about</a></li>
+                    <li><a href="pages/gallery.html">gallery</a></li>
+                    <li><a href="pages/blog.html">blog</a></li>
+                    <li><a href="pages/contact.html">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="bottom">
+            <p class="credits">&copy; 2024 InkWell All Rights Reserved.</p>
+
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link facebook"
+                            data-type="facebook"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link instagram"
+                            data-type="instagram"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link twitter"
+                            data-type="twitter"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </html>
 
 <script>
@@ -444,9 +513,9 @@
                                 }
                             );
 
-                            console.log('====================================');
+                            console.log("====================================");
                             console.log("userReviews: ", userReviews);
-                            console.log('====================================');
+                            console.log("====================================");
 
                             const newUserDetails = {
                                 ...userDetails,
@@ -458,7 +527,8 @@
                                 JSON.stringify(newUserDetails)
                             );
 
-                            const users = JSON.parse(localStorage.getItem("users")) || [];
+                            const users =
+                                JSON.parse(localStorage.getItem("users")) || [];
                             const updatedUsers = users?.map((user) => {
                                 if (user.id === userDetails.id) {
                                     return newUserDetails;
