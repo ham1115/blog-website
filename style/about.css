@@ -1,0 +1,159 @@
+.modal-content {
+    width: 95%;
+    overflow-y: scroll;
+    height: 95vh;
+}
+
+.hobbies-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+.video-input-container {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 100%;
+}
+
+.hobby-1 {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.5);
+    padding-bottom: 1rem;
+}
+
+.hobby .desc-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.about-info {
+    margin-top: 4rem;
+    position: relative;
+    gap: 2rem;
+}
+
+.about-info .description-placeholder {
+    font-weight: 300 !important;
+}
+
+.picture-placeholder {
+    height: 30rem;
+    width: 100%;
+    display: flex;
+    object-fit: cover;
+}
+
+.hand-with-flower {
+    right: 0;
+    bottom: 0;
+}
+
+.section-title {
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    margin-top: 5rem;
+}
+
+.table-container {
+    font-size: 1.25rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow-x: scroll;
+}
+
+.table-container .inner-container {
+    min-width: 35rem;
+}
+
+.col {
+    padding: 1.5rem;
+}
+
+.col-3-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.row:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.col:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+.headers {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: #e0c8c6;
+}
+
+.values .col {
+    font-weight: 300 !important;
+}
+
+video {
+    width: 100%;
+    height: 35rem;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.cta p {
+    font-weight: 300;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        width: 80%;
+        height: 80vh;
+    }
+}
+@media (min-width: 1440px) {
+    .about-info {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .hand-with-flower {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    .modal-content {
+        width: 70%;
+        height: 85vh;
+    }
+}
+
+@media (min-width: 1920px) {
+    .section-title {
+        margin-top: 10rem;
+    }
+
+    .cta {
+        margin: 10rem 0;
+    }
+
+    .modal-content {
+        width: 50vw;
+        padding: 2rem;
+    }
+}

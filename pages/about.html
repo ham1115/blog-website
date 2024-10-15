@@ -3,15 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href="/blog-website/">
-        <link rel="stylesheet" href="root.css" />
-        <script src="main.js" defer></script>
-        <title>TITLE - About</title>
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <link rel="stylesheet" href="/style/about.css" />
+        <script src="/main.js" defer></script>
+        <title>InkWell - About</title>
     </head>
     <body>
-        <!-- MOBILE Header -->
+        <!-- Header -->
         <header class="main-header container mobile-header">
-            <a href="/" class="nav-link logo">Sofia F.</a>
+            <a href="/" class="nav-link logo">InkWell</a>
 
             <!-- Social Links -->
 
@@ -25,20 +27,20 @@
                 <div class="nav-links">
                     <ul>
                         <li>
-                            <a href="pages/about.html" class="nav-link"
+                            <a href="/pages/about.html" class="nav-link"
                                 >about</a
                             >
                         </li>
                         <li>
-                            <a href="pages/gallery.html" class="nav-link"
+                            <a href="/pages/gallery.html" class="nav-link"
                                 >gallery</a
                             >
                         </li>
                         <li>
-                            <a href="pages/blog.html" class="nav-link">blog</a>
+                            <a href="/pages/blog.html" class="nav-link">blog</a>
                         </li>
                         <li>
-                            <a href="pages/contact.html" class="nav-link"
+                            <a href="/pages/contact.html" class="nav-link"
                                 >contact</a
                             >
                         </li>
@@ -50,7 +52,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/facebook.png"
+                                    src="/assets/socials/facebook.png"
                                     alt="Facebook"
                                 />
                             </a>
@@ -58,7 +60,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/instagram.png"
+                                    src="/assets/socials/instagram.png"
                                     alt="Instagram"
                                 />
                             </a>
@@ -66,7 +68,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/x.png"
+                                    src="/assets/socials/x.png"
                                     alt="X / Twitter"
                                 />
                             </a>
@@ -75,15 +77,15 @@
                 </div>
 
                 <div class="auth-links">
-                    <a href="pages/login.html" class="auth-link"> Log in </a>
-                    <a href="pages/signup.html" class="auth-link signup"
+                    <a href="/pages/login.html" class="auth-link"> Log in </a>
+                    <a href="/pages/signup.html" class="auth-link signup"
                         >Sign up</a
                     >
                 </div>
             </nav>
         </header>
 
-        <!-- DESKTOP Header -->
+        <!-- Header -->
         <header class="main-header container desktop-header">
             <!-- Social Links -->
             <div class="social-links">
@@ -91,7 +93,7 @@
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="assets/socials/facebook.png"
+                                src="/assets/socials/facebook.png"
                                 alt="Facebook"
                             />
                         </a>
@@ -99,14 +101,17 @@
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="assets/socials/instagram.png"
+                                src="/assets/socials/instagram.png"
                                 alt="Instagram"
                             />
                         </a>
                     </li>
                     <li>
                         <a href="#" class="social-link">
-                            <img src="assets/socials/x.png" alt="X / Twitter" />
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
                         </a>
                     </li>
                 </ul>
@@ -116,23 +121,21 @@
             <nav class="nav-links">
                 <ul>
                     <li>
-                        <a href="pages/about.html" class="nav-link">about</a>
+                        <a href="/pages/about.html" class="nav-link">about</a>
                     </li>
                     <li>
-                        <a href="pages/gallery.html" class="nav-link"
+                        <a href="/pages/gallery.html" class="nav-link"
                             >gallery</a
                         >
                     </li>
                     <li>
-                        <a href="blog-website" class="nav-link logo"
-                            >Sofia F.</a
-                        >
+                        <a href="/" class="nav-link logo">InkWell</a>
                     </li>
                     <li>
-                        <a href="pages/blog.html" class="nav-link">blog</a>
+                        <a href="/pages/blog.html" class="nav-link">blog</a>
                     </li>
                     <li>
-                        <a href="pages/contact.html" class="nav-link"
+                        <a href="/pages/contact.html" class="nav-link"
                             >contact</a
                         >
                     </li>
@@ -140,13 +143,15 @@
             </nav>
 
             <div class="auth-links">
-                <a href="pages/login.html" class="auth-link"> Log in </a>
-                <a href="pages/signup.html" class="auth-link signup">Sign up</a>
+                <a href="/pages/login.html" class="auth-link"> Log in </a>
+                <a href="/pages/signup.html" class="auth-link signup"
+                    >Sign up</a
+                >
             </div>
         </header>
 
         <div class="page-thumb">
-            <img src="assets/trees.jpg" alt="Trees" />
+            <img src="/assets/trees.jpg" alt="Trees" />
         </div>
 
         <main class="container">
@@ -155,18 +160,296 @@
                 <p class="page-subtitle">learn more about me</p>
             </div>
 
-            <div class="about">
-                <img src="" alt="" />
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Earum recusandae numquam, minima rem eius ex tenetur ipsa
-                    temporibus neque aut iure esse fuga voluptate sit veritatis
-                    modi id voluptatibus at laudantium suscipit. Incidunt
-                    doloremque inventore illo eveniet similique fuga delectus,
-                    sunt repellendus ducimus quod dolore unde, quibusdam tenetur
-                    ullam voluptates.
+            <button id="openModalBtn" class="primary-btn mt-4">Add Info</button>
+
+            <div class="about-info">
+                <img src="" class="picture-placeholder" />
+                <p class="description-placeholder"></p>
+                <img
+                    src="/assets/hand-with-flower.png"
+                    alt=""
+                    class="hand-with-flower"
+                />
+            </div>
+
+            <div class="hobbies">
+                <p class="section-title">
+                    Fueling Creativity, One Hobby at a Time
                 </p>
+
+                <div class="table-container">
+                    <div class="inner-container">
+                        <div class="headers col-3-row">
+                            <div class="col">Hobby</div>
+                            <div class="col">Description</div>
+                            <div class="col">Why I Enjoy It</div>
+                        </div>
+
+                        <div class="hobbies-values"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video">
+                <p class="section-title">Unfiltered: Behind the Scenes</p>
+                <video controls class="video-container">
+                    <source class="video-placeholder" src="" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="cta">
+                <p>
+                    Have a question or just want to say hi? I'll try my best to
+                    get back to you!
+                </p>
+                <a href="contact.html" class="primary-btn">Contact Me</a>
             </div>
         </main>
+
+        <div id="modal-popup" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="blog-title">Add Personal Info</p>
+
+                <div class="form">
+                    <div class="form-group">
+                        <label for="pictureUrl">Picture URL</label>
+                        <input
+                            id="pictureUrl"
+                            type="text"
+                            placeholder="Enter picture URL of you!"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Write something about you..."
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <!-- HOBBIES -->
+                    <p class="subtitle">Hobbies</p>
+                    <div class="hobbies-container">
+                        <div class="hobby hobby-1">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input
+                                    id="title"
+                                    type="text"
+                                    placeholder="Enter hobby title"
+                                />
+                            </div>
+                            <div class="desc-container">
+                                <div class="form-group">
+                                    <label for="hobbyDescription"
+                                        >Description</label
+                                    >
+                                    <textarea
+                                        name="hobbyDescription"
+                                        id="hobbyDescription"
+                                        placeholder="Write something about the hobby"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whyLoveIt"
+                                        >Why you love it</label
+                                    >
+                                    <textarea
+                                        name="whyLoveIt"
+                                        id="whyLoveIt"
+                                        placeholder="Write why you love the hobby"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hobby hobby-2">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input
+                                    id="title"
+                                    type="text"
+                                    placeholder="Enter hobby title"
+                                />
+                            </div>
+                            <div class="desc-container">
+                                <div class="form-group">
+                                    <label for="hobbyDescription"
+                                        >Description</label
+                                    >
+                                    <textarea
+                                        name="hobbyDescription"
+                                        id="hobbyDescription"
+                                        placeholder="Write something about the hobby"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whyLoveIt"
+                                        >Why you love it</label
+                                    >
+                                    <textarea
+                                        name="whyLoveIt"
+                                        id="whyLoveIt"
+                                        placeholder="Write why you love the hobby"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEO -->
+                    <p class="subtitle">Video</p>
+
+                    <div class="video-input-container">
+                        <div class="form-group">
+                            <label for="videoUrl">Video URL</label>
+                            <input
+                                id="videoUrl"
+                                type="text"
+                                placeholder="Enter video URL"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="primary-btn cancel-btn">
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            class="primary-btn-inverted submit-btn add-blog-btn"
+                        >
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
+
+    <script>
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+        console.log("====================================");
+        console.log(userDetails);
+        console.log("====================================");
+
+        if (userDetails) {
+            const picturePlaceholder = document.querySelector(
+                ".picture-placeholder"
+            );
+            const descriptionPlaceholder = document.querySelector(
+                ".description-placeholder"
+            );
+
+            const videoContainer = document.querySelector(".video-container");
+            const videoPlaceholder =
+                document.querySelector(".video-placeholder");
+
+            const hobbiesValues = document.querySelector(".hobbies-values");
+
+            const pictureUrl = document.getElementById("pictureUrl");
+            const description = document.getElementById("description");
+            const videoUrl = document.getElementById("videoUrl");
+
+            const hobbiesElement = document.querySelectorAll(".hobby");
+            const inputtedHobbies = [];
+            const addInfoBtn = document.querySelector(".submit-btn");
+
+            userDetails.hobbies?.forEach((hobby) => {
+                const { title, description, whyLoveIt } = hobby;
+
+                const hobbyElement = document.createElement("div");
+                hobbyElement.classList.add("row");
+                hobbyElement.classList.add("col-3-row");
+
+                hobbyElement.innerHTML = `     
+                    <div class="col">${title}</div>
+                    <div class="col">
+                       ${description}
+                    </div>
+                    <div class="col">
+                      ${whyLoveIt}
+                    </div>
+                `;
+
+                hobbiesValues.appendChild(hobbyElement);
+            });
+
+            // assigning of values
+            picturePlaceholder.src = userDetails.pictureUrl || "";
+            picturePlaceholder.alt = "Picture";
+
+            descriptionPlaceholder.textContent = userDetails.description || "";
+
+            videoPlaceholder.src = userDetails.videoUrl || "";
+            videoContainer.load();
+
+            pictureUrl.value = userDetails.pictureUrl || "";
+            description.value = userDetails.description || "";
+            videoUrl.value = userDetails.videoUrl || "";
+
+            // these are elements in the modal
+            hobbiesElement?.forEach((hobby, index) => {
+                // Select elements within each .hobby element
+                const title = hobby.querySelector("#title");
+                const hobbyDescription =
+                    hobby.querySelector("#hobbyDescription");
+                const whyLoveIt = hobby.querySelector("#whyLoveIt");
+
+                const existingHobby = userDetails.hobbies[index];
+
+                if (existingHobby) {
+                    title.value = existingHobby.title;
+                    hobbyDescription.value = existingHobby.description;
+                    whyLoveIt.value = existingHobby.whyLoveIt;
+                }
+            });
+
+            // SUBMIT / UPDATE Info --------------------------
+            addInfoBtn?.addEventListener("click", (e) => {
+                hobbiesElement?.forEach((hobby) => {
+                    // Select elements within each .hobby element
+                    const title = hobby.querySelector("#title")?.value || "";
+                    const hobbyDescription =
+                        hobby.querySelector("#hobbyDescription")?.value || "";
+                    const whyLoveIt =
+                        hobby.querySelector("#whyLoveIt")?.value || "";
+
+                    // Create an object for the current hobby
+                    const hobbyObject = {
+                        title: title,
+                        description: hobbyDescription,
+                        whyLoveIt: whyLoveIt,
+                    };
+
+                    // Push the object into the inputtedHobbies
+                    inputtedHobbies.push(hobbyObject);
+                });
+
+                const newUserDetails = {
+                    ...userDetails,
+                    pictureUrl: pictureUrl.value || "",
+                    description: description.value || "",
+                    videoUrl: videoUrl.value || "",
+                    hobbies: inputtedHobbies || [],
+                };
+
+                localStorage.setItem(
+                    "userDetails",
+                    JSON.stringify(newUserDetails)
+                );
+
+                window.location.reload();
+            });
+        }
+    </script>
 </html>
