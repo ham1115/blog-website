@@ -366,10 +366,7 @@
 
     <script>
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-        console.log("====================================");
-        console.log(userDetails);
-        console.log("====================================");
-
+        
         if (userDetails) {
             const picturePlaceholder = document.querySelector(
                 ".picture-placeholder"
@@ -433,7 +430,9 @@
                     hobby.querySelector("#hobbyDescription");
                 const whyLoveIt = hobby.querySelector("#whyLoveIt");
 
-                const existingHobby = userDetails.hobbies[index];
+                const existingHobby = userDetails.hobbies.length
+                    ? userDetails.hobbies[index]
+                    : null;
 
                 if (existingHobby) {
                     title.value = existingHobby.title;
@@ -475,6 +474,18 @@
                     "userDetails",
                     JSON.stringify(newUserDetails)
                 );
+
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+                const updatedUsers = users?.map((user) => {
+                    if (user.id === userDetails.id) {
+                        return newUserDetails;
+                    }
+
+                    return user;
+                });
+
+
+                localStorage.setItem("users", JSON.stringify(updatedUsers));
 
                 window.location.reload();
             });

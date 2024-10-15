@@ -33,9 +33,17 @@
         />
 
         <base href="/blog-website/" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+        />
         <link rel="stylesheet" href="/root.css" />
         <link rel="stylesheet" href="/style/landing.css" />
-        <script src="main.js" defer></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
+            defer
+        ></script>
+        <script src="/main.js" defer></script>
         <title>InkWell - Home</title>
     </head>
     <body>
@@ -80,7 +88,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/facebook.png"
+                                    src="/assets/socials/facebook.png"
                                     alt="Facebook"
                                 />
                             </a>
@@ -88,7 +96,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/instagram.png"
+                                    src="/assets/socials/instagram.png"
                                     alt="Instagram"
                                 />
                             </a>
@@ -96,7 +104,7 @@
                         <li>
                             <a href="#" class="social-link">
                                 <img
-                                    src="assets/socials/x.png"
+                                    src="/assets/socials/x.png"
                                     alt="X / Twitter"
                                 />
                             </a>
@@ -110,6 +118,10 @@
                         >Sign up</a
                     >
                 </div>
+
+                <button class="primary-btn-inverted log-out-link">
+                    Log out
+                </button>
             </nav>
         </header>
 
@@ -121,7 +133,7 @@
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="assets/socials/facebook.png"
+                                src="/assets/socials/facebook.png"
                                 alt="Facebook"
                             />
                         </a>
@@ -129,14 +141,17 @@
                     <li>
                         <a href="#" class="social-link">
                             <img
-                                src="assets/socials/instagram.png"
+                                src="/assets/socials/instagram.png"
                                 alt="Instagram"
                             />
                         </a>
                     </li>
                     <li>
                         <a href="#" class="social-link">
-                            <img src="assets/socials/x.png" alt="X / Twitter" />
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
                         </a>
                     </li>
                 </ul>
@@ -173,6 +188,8 @@
                 <a href="pages/login.html" class="auth-link"> Log in </a>
                 <a href="pages/signup.html" class="auth-link signup">Sign up</a>
             </div>
+
+            <button class="primary-btn log-out-link">Log out</button>
         </header>
 
         <main>

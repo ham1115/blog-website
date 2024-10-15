@@ -349,6 +349,17 @@
 
             localStorage.setItem("userDetails", JSON.stringify(newUserDetails));
 
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const updatedUsers = users?.map((user) => {
+                if (user.id === userDetails.id) {
+                    return newUserDetails;
+                }
+
+                return user;
+            });
+
+            localStorage.setItem("users", JSON.stringify(updatedUsers));
+
             window.location.reload();
         };
 

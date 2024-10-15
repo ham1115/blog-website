@@ -302,6 +302,17 @@
 
                 isSuccessfulSignUp = true;
 
+                const userDetails = {
+                    ...existingUser,
+                    email: email.value,
+                    password: simpleHash(password.value),
+                };
+
+                localStorage.setItem(
+                    "userDetails",
+                    JSON.stringify(userDetails)
+                );
+
                 // redirect to about page
                 window.location.href = "/pages/about.html";
             }, 1500);

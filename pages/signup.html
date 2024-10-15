@@ -442,13 +442,19 @@
             const hashedPassword = simpleHash(password.value);
 
             const newUser = {
+                id: Math.random().toString(),
                 password: hashedPassword,
                 username: username.value,
                 email: email.value,
+                blogs: [],
+                hobbies: [],
+                pictureUrl: "",
+                videoUrl: "",
+                description: "",
             };
 
             // Store user data as key-value pair in LocalStorage
-            localStorage.setItem("userDetails", JSON.stringify(newUser));
+            // localStorage.setItem("userDetails", JSON.stringify(newUser));
 
             const existingUsers =
                 JSON.parse(localStorage.getItem("users")) || [];

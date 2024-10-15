@@ -1,6 +1,12 @@
 const hamburgerMenu = document.querySelector("#hamburger");
-const floatingMenu = document.querySelector(".floating-link-container");
 const hamburgerMenuBars = hamburgerMenu?.querySelectorAll(".bar");
+const floatingMenu = document.querySelector(".floating-link-container");
+const socialLinks = document.querySelectorAll(".social-links");
+
+const formGroupPassword = document.querySelector(".form-group-password");
+const formGroupConfirmPassword = document.querySelector(
+    ".form-group-confirm-password"
+);
 
 if (hamburgerMenu) {
     hamburgerMenu.addEventListener("click", (e) => {
@@ -12,10 +18,60 @@ if (hamburgerMenu) {
     });
 }
 
-const formGroupPassword = document.querySelector(".form-group-password");
-const formGroupConfirmPassword = document.querySelector(
-    ".form-group-confirm-password"
-);
+const authenticatedUser = JSON.parse(localStorage.getItem("userDetails"));
+
+// check if user is authenticated
+if (!authenticatedUser) {
+    const navLinks = document.querySelectorAll(".nav-link:not(.logo");
+    const mobileNavLinks = floatingMenu.querySelector("ul");
+    const desktopNavLins = document.querySelector(
+        ".desktop-header .nav-links ul"
+    );
+
+    navLinks.forEach((link) => {
+        link.style.display = "none";
+    });
+
+    desktopNavLins.style.gap = "0";
+    mobileNavLinks.style.display = "none";
+
+    socialLinks.forEach((link) => {
+        link.style.display = "none";
+    });
+} else {
+    const authLinks = document.querySelectorAll(".auth-links");
+    const logoutLinks = document.querySelectorAll(".log-out-link");
+
+    authLinks.forEach((link) => {
+        link.style.display = "none";
+    });
+
+    logoutLinks.forEach((link) => {
+        link.style.display = "block";
+
+        link.addEventListener("click", (e) => {
+            Swal.fire({
+                title: "Confirm Action",
+                text: "Are you sure you want to log out?",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+                cancelButtonText: "Cancel",
+                customClass: {
+                    confirmButton: "confirm-button",
+                    cancelButton: "cancel-button",
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setTimeout(() => {
+                        localStorage.setItem("userDetails", null);
+                        window.location.href = "/pages/login.html";
+                    }, 500);
+                }
+            });
+        });
+    });
+}
 
 if (formGroupPassword) {
     const passwordInput = formGroupPassword.querySelector("#password");
