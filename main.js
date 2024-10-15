@@ -73,7 +73,7 @@ if (!authenticatedUser) {
                 if (result.isConfirmed) {
                     setTimeout(() => {
                         localStorage.setItem("userDetails", null);
-                        window.location.href = "/pages/login.html";
+                        window.location.href = "pages/login.html";
                     }, 500);
                 }
             });
@@ -141,7 +141,7 @@ if (modalPopup) {
         modalPopup.style.display = "none";
 
         if (modalActionBtn?.getAttribute("data-action") === "login") {
-            window.location.href = "/pages/login.html";
+            window.location.href = "pages/login.html";
         }
     });
 
@@ -155,7 +155,7 @@ if (modalPopup) {
             modalPopup.style.display = "none";
 
             if (modalActionBtn?.getAttribute("data-action") === "login") {
-                window.location.href = "/pages/login.html";
+                window.location.href = "pages/login.html";
             }
         }
     });
@@ -163,7 +163,7 @@ if (modalPopup) {
     if (modalActionBtn) {
         modalActionBtn.addEventListener("click", (e) => {
             if (modalActionBtn?.getAttribute("data-action") === "login") {
-                window.location.href = "/pages/login.html";
+                window.location.href = "pages/login.html";
             }
         });
     }

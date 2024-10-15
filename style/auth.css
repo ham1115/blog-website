@@ -158,7 +158,7 @@ form .actions,
 /* login */
 
 .login-section {
-    background-image: url("/assets/clouds.jpg");
+    background-image: url("assets/clouds.jpg");
     border-radius: 1rem;
     display: flex;
     align-items: center;
