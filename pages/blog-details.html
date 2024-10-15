@@ -61,7 +61,7 @@
     <body>
         <!-- MOBILE Header -->
         <header class="main-header container mobile-header">
-            <a href="/" class="nav-link logo">InkWell</a>
+            <a href="/blog-website/" class="nav-link logo">InkWell</a>
 
             <!-- Social Links -->
 
@@ -98,25 +98,40 @@
                 <div class="social-links">
                     <ul>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link facebook"
+                                data-type="facebook"
+                                target="_blank"
+                            >
                                 <img
-                                    src="assets/socials/facebook.png"
+                                    src="/assets/socials/facebook.png"
                                     alt="Facebook"
                                 />
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link instagram"
+                                data-type="instagram"
+                                target="_blank"
+                            >
                                 <img
-                                    src="assets/socials/instagram.png"
+                                    src="/assets/socials/instagram.png"
                                     alt="Instagram"
                                 />
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link twitter"
+                                data-type="twitter"
+                                target="_blank"
+                            >
                                 <img
-                                    src="assets/socials/x.png"
+                                    src="/assets/socials/x.png"
                                     alt="X / Twitter"
                                 />
                             </a>
@@ -130,6 +145,10 @@
                         >Sign up</a
                     >
                 </div>
+
+                <button class="primary-btn-inverted log-out-link">
+                    Log out
+                </button>
             </nav>
         </header>
 
@@ -139,24 +158,42 @@
             <div class="social-links">
                 <ul>
                     <li>
-                        <a href="#" class="social-link">
+                        <a
+                            href="#"
+                            class="social-link facebook"
+                            data-type="facebook"
+                            target="_blank"
+                        >
                             <img
-                                src="assets/socials/facebook.png"
+                                src="/assets/socials/facebook.png"
                                 alt="Facebook"
                             />
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="social-link">
+                        <a
+                            href="#"
+                            class="social-link instagram"
+                            data-type="instagram"
+                            target="_blank"
+                        >
                             <img
-                                src="assets/socials/instagram.png"
+                                src="/assets/socials/instagram.png"
                                 alt="Instagram"
                             />
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="social-link">
-                            <img src="assets/socials/x.png" alt="X / Twitter" />
+                        <a
+                            href="#"
+                            class="social-link twitter"
+                            data-type="twitter"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
                         </a>
                     </li>
                 </ul>
@@ -174,7 +211,9 @@
                         >
                     </li>
                     <li>
-                        <a href="blog-website" class="nav-link logo">InkWell</a>
+                        <a href="/blog-website/" class="nav-link logo"
+                            >InkWell</a
+                        >
                     </li>
                     <li>
                         <a href="pages/blog.html" class="nav-link">blog</a>
@@ -191,6 +230,8 @@
                 <a href="pages/login.html" class="auth-link"> Log in </a>
                 <a href="pages/signup.html" class="auth-link signup">Sign up</a>
             </div>
+
+            <button class="primary-btn log-out-link">Log out</button>
         </header>
         <div class="page-thumb">
             <img src="/assets/trees.jpg" alt="Trees" />
@@ -199,8 +240,6 @@
         <main class="container" id="blog">
             <div class="heading">
                 <a href="/pages/blog.html" class="page-back-link">Back</a>
-                <!-- <h1 class="page-title">blog details</h1> -->
-                <!-- <p class="page-subtitle">Tales from the Path Less Traveled</p> -->
             </div>
 
             <div class="blog-container">

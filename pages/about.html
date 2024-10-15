@@ -39,9 +39,9 @@
         <title>InkWell - About</title>
     </head>
     <body>
-        <!-- Header -->
+        <!-- MOBILE Header -->
         <header class="main-header container mobile-header">
-            <a href="/" class="nav-link logo">InkWell</a>
+            <a href="/blog-website/" class="nav-link logo">InkWell</a>
 
             <!-- Social Links -->
 
@@ -55,20 +55,20 @@
                 <div class="nav-links">
                     <ul>
                         <li>
-                            <a href="/pages/about.html" class="nav-link"
+                            <a href="pages/about.html" class="nav-link"
                                 >about</a
                             >
                         </li>
                         <li>
-                            <a href="/pages/gallery.html" class="nav-link"
+                            <a href="pages/gallery.html" class="nav-link"
                                 >gallery</a
                             >
                         </li>
                         <li>
-                            <a href="/pages/blog.html" class="nav-link">blog</a>
+                            <a href="pages/blog.html" class="nav-link">blog</a>
                         </li>
                         <li>
-                            <a href="/pages/contact.html" class="nav-link"
+                            <a href="pages/contact.html" class="nav-link"
                                 >contact</a
                             >
                         </li>
@@ -78,7 +78,12 @@
                 <div class="social-links">
                     <ul>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link facebook"
+                                data-type="facebook"
+                                target="_blank"
+                            >
                                 <img
                                     src="/assets/socials/facebook.png"
                                     alt="Facebook"
@@ -86,7 +91,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link instagram"
+                                data-type="instagram"
+                                target="_blank"
+                            >
                                 <img
                                     src="/assets/socials/instagram.png"
                                     alt="Instagram"
@@ -94,7 +104,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="social-link">
+                            <a
+                                href="#"
+                                class="social-link twitter"
+                                data-type="twitter"
+                                target="_blank"
+                            >
                                 <img
                                     src="/assets/socials/x.png"
                                     alt="X / Twitter"
@@ -105,21 +120,30 @@
                 </div>
 
                 <div class="auth-links">
-                    <a href="/pages/login.html" class="auth-link"> Log in </a>
-                    <a href="/pages/signup.html" class="auth-link signup"
+                    <a href="pages/login.html" class="auth-link"> Log in </a>
+                    <a href="pages/signup.html" class="auth-link signup"
                         >Sign up</a
                     >
                 </div>
+
+                <button class="primary-btn-inverted log-out-link">
+                    Log out
+                </button>
             </nav>
         </header>
 
-        <!-- Header -->
+        <!-- DESKTOP Header -->
         <header class="main-header container desktop-header">
             <!-- Social Links -->
             <div class="social-links">
                 <ul>
                     <li>
-                        <a href="#" class="social-link">
+                        <a
+                            href="#"
+                            class="social-link facebook"
+                            data-type="facebook"
+                            target="_blank"
+                        >
                             <img
                                 src="/assets/socials/facebook.png"
                                 alt="Facebook"
@@ -127,7 +151,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="social-link">
+                        <a
+                            href="#"
+                            class="social-link instagram"
+                            data-type="instagram"
+                            target="_blank"
+                        >
                             <img
                                 src="/assets/socials/instagram.png"
                                 alt="Instagram"
@@ -135,7 +164,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="social-link">
+                        <a
+                            href="#"
+                            class="social-link twitter"
+                            data-type="twitter"
+                            target="_blank"
+                        >
                             <img
                                 src="/assets/socials/x.png"
                                 alt="X / Twitter"
@@ -149,21 +183,23 @@
             <nav class="nav-links">
                 <ul>
                     <li>
-                        <a href="/pages/about.html" class="nav-link">about</a>
+                        <a href="pages/about.html" class="nav-link">about</a>
                     </li>
                     <li>
-                        <a href="/pages/gallery.html" class="nav-link"
+                        <a href="pages/gallery.html" class="nav-link"
                             >gallery</a
                         >
                     </li>
                     <li>
-                        <a href="/" class="nav-link logo">InkWell</a>
+                        <a href="/blog-website/" class="nav-link logo"
+                            >InkWell</a
+                        >
                     </li>
                     <li>
-                        <a href="/pages/blog.html" class="nav-link">blog</a>
+                        <a href="pages/blog.html" class="nav-link">blog</a>
                     </li>
                     <li>
-                        <a href="/pages/contact.html" class="nav-link"
+                        <a href="pages/contact.html" class="nav-link"
                             >contact</a
                         >
                     </li>
@@ -171,11 +207,11 @@
             </nav>
 
             <div class="auth-links">
-                <a href="/pages/login.html" class="auth-link"> Log in </a>
-                <a href="/pages/signup.html" class="auth-link signup"
-                    >Sign up</a
-                >
+                <a href="pages/login.html" class="auth-link"> Log in </a>
+                <a href="pages/signup.html" class="auth-link signup">Sign up</a>
             </div>
+
+            <button class="primary-btn log-out-link">Log out</button>
         </header>
 
         <div class="page-thumb">
@@ -348,6 +384,35 @@
                         </div>
                     </div>
 
+                    <!-- Social Links -->
+                    <p class="subtitle">Social Links</p>
+                    <div class="social-links-container">
+                        <div class="form-group">
+                            <label for="facebook">Facebook</label>
+                            <input
+                                id="facebook"
+                                type="text"
+                                placeholder="Enter facebook URL"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram">Instagram</label>
+                            <input
+                                id="instagram"
+                                type="text"
+                                placeholder="Enter instagram URL"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="twitter">X / Twitter</label>
+                            <input
+                                id="twitter"
+                                type="text"
+                                placeholder="Enter x / twitter URL"
+                            />
+                        </div>
+                    </div>
+
                     <div class="modal-actions">
                         <button type="button" class="primary-btn cancel-btn">
                             Cancel
@@ -366,29 +431,32 @@
 
     <script>
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-        
+
+        const picturePlaceholder = document.querySelector(
+            ".picture-placeholder"
+        );
+        const descriptionPlaceholder = document.querySelector(
+            ".description-placeholder"
+        );
+
+        const videoContainer = document.querySelector(".video-container");
+        const videoPlaceholder = document.querySelector(".video-placeholder");
+
+        const hobbiesValues = document.querySelector(".hobbies-values");
+
+        const pictureUrl = document.getElementById("pictureUrl");
+        const description = document.getElementById("description");
+        const videoUrl = document.getElementById("videoUrl");
+
+        const facebookUrl = document.getElementById("facebook");
+        const instagramUrl = document.getElementById("instagram");
+        const twitterUrl = document.getElementById("twitter");
+
+        const hobbiesElement = document.querySelectorAll(".hobby");
+        const inputtedHobbies = [];
+        const addInfoBtn = document.querySelector(".submit-btn");
+
         if (userDetails) {
-            const picturePlaceholder = document.querySelector(
-                ".picture-placeholder"
-            );
-            const descriptionPlaceholder = document.querySelector(
-                ".description-placeholder"
-            );
-
-            const videoContainer = document.querySelector(".video-container");
-            const videoPlaceholder =
-                document.querySelector(".video-placeholder");
-
-            const hobbiesValues = document.querySelector(".hobbies-values");
-
-            const pictureUrl = document.getElementById("pictureUrl");
-            const description = document.getElementById("description");
-            const videoUrl = document.getElementById("videoUrl");
-
-            const hobbiesElement = document.querySelectorAll(".hobby");
-            const inputtedHobbies = [];
-            const addInfoBtn = document.querySelector(".submit-btn");
-
             userDetails.hobbies?.forEach((hobby) => {
                 const { title, description, whyLoveIt } = hobby;
 
@@ -421,6 +489,10 @@
             pictureUrl.value = userDetails.pictureUrl || "";
             description.value = userDetails.description || "";
             videoUrl.value = userDetails.videoUrl || "";
+
+            facebookUrl.value = userDetails.socialLinks?.facebook || "";
+            instagramUrl.value = userDetails.socialLinks?.facebook || "";
+            twitterUrl.value = userDetails.socialLinks?.facebook || "";
 
             // these are elements in the modal
             hobbiesElement?.forEach((hobby, index) => {
@@ -468,6 +540,11 @@
                     description: description.value || "",
                     videoUrl: videoUrl.value || "",
                     hobbies: inputtedHobbies || [],
+                    socialLinks: {
+                        facebook: facebookUrl.value || "",
+                        instagram: instagramUrl.value || "",
+                        twitter: twitterUrl.value || "",
+                    },
                 };
 
                 localStorage.setItem(
@@ -483,7 +560,6 @@
 
                     return user;
                 });
-
 
                 localStorage.setItem("users", JSON.stringify(updatedUsers));
 

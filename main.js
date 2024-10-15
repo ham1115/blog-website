@@ -41,6 +41,14 @@ if (!authenticatedUser) {
 } else {
     const authLinks = document.querySelectorAll(".auth-links");
     const logoutLinks = document.querySelectorAll(".log-out-link");
+    const socialLinks = document.querySelectorAll(".social-link");
+
+    socialLinks.forEach((link) => {
+        const type = link?.getAttribute("data-type");
+        if (type) {
+            link.href = authenticatedUser.socialLinks[type];
+        }
+    });
 
     authLinks.forEach((link) => {
         link.style.display = "none";
