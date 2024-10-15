@@ -217,11 +217,15 @@
         gap: 2rem;
     }
     .about-section .about-image {
-        width: 100%;
+        width: 20rem;
     }
 
     .blog {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-section .about-info {
+        width: 100%;
     }
 }
 
