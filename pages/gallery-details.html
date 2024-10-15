@@ -38,7 +38,7 @@
         />
         <link rel="stylesheet" href="/root.css" />
         <link rel="stylesheet" href="/style/auth.css" />
-        <link rel="stylesheet" href="/style/blog.css" />
+        <link rel="stylesheet" href="/style/gallery.css" />
         <link rel="stylesheet" href="/style/modal.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
@@ -56,7 +56,7 @@
         ></script>
 
         <script src="main.js" defer></script> -->
-        <title>InkWell - Blog</title>
+        <title>InkWell - Review Details</title>
     </head>
     <body>
         <!-- MOBILE Header -->
@@ -239,10 +239,10 @@
 
         <main class="container" id="blog">
             <div class="heading">
-                <a href="/pages/blog.html" class="page-back-link">Back</a>
+                <a href="/pages/gallery.html" class="page-back-link">Back</a>
             </div>
 
-            <div class="blog-container">
+            <div class="review-container">
                 <div class="actions-btn">
                     <button
                         type="button"
@@ -266,9 +266,9 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span id="closeBtn" class="close">&times;</span>
-                <p class="add-blog-title">Update Blog</p>
+                <p class="add-blog-title">Update Review</p>
 
-                <form onsubmit="return false;">
+                <div class="form">
                     <div class="form-group">
                         <label for="imageUrl">Thumbnail URL</label>
                         <input
@@ -280,21 +280,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="blogTitle">Title</label>
+                        <label for="bookTitle">Book Title</label>
                         <input
-                            id="blogTitle"
+                            id="bookTitle"
                             type="text"
-                            placeholder="Enter title"
+                            placeholder="Enter book title"
                             max="255"
                         />
                         <div class="error-msg" id="error-username"></div>
                     </div>
                     <div class="form-group">
-                        <label for="tag">Tag</label>
+                        <label for="targetUrl">Target URL</label>
                         <input
-                            id="tag"
+                            id="targetUrl"
                             type="text"
-                            placeholder="Enter tag (e.g., Travel, Experience)"
+                            placeholder="Enter URL for redirection"
                             max="255"
                         />
                         <div class="error-msg" id="error-username"></div>
@@ -316,36 +316,20 @@
                         </button>
                         <button
                             type="button"
-                            class="primary-btn-inverted submit-btn"
+                            class="primary-btn-inverted submit-btn update-review-btn"
                         >
                             Update
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </body>
 </html>
 
 <script>
-    function formatDate(isoDateString) {
-        // Convert to Date object
-        const dateObject = new Date(isoDateString);
-
-        // Check if the date is valid
-        if (isNaN(dateObject)) {
-            throw new Error("Invalid date string");
-        }
-
-        // Options for formatting
-        const options = { year: "numeric", month: "long", day: "numeric" };
-
-        // Format the date
-        return dateObject.toLocaleDateString("en-US", options);
-    }
-
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-    const blogContainer = document.querySelector(".blog-container");
+    const reviewsContainer = document.querySelector(".review-container");
 
     if (userDetails) {
         const currentUrl = window.location.href;
@@ -353,70 +337,67 @@
         const params = new URLSearchParams(url.search);
 
         // Get the value of the 'id' parameter
-        const blogId = params.get("id");
-        const blogDetails = userDetails?.blogs.find(
-            (blog) => blog.id === blogId
+        const reviewId = params.get("id");
+        const reviewDetails = userDetails?.reviews.find(
+            (review) => review.id === reviewId
         );
 
-        const blogDetailsElement = document.createElement("div");
-        blogDetailsElement.classList.add("main-content");
-        blogDetailsElement.innerHTML = `
+        const reviewDetailsElement = document.createElement("div");
+        reviewDetailsElement.classList.add("main-content");
+        reviewDetailsElement.innerHTML = `
             <img
                 class="thumbnail"
-                src="${blogDetails.imageUrl}"
-                alt="${blogDetails.title}"
+                src="${reviewDetails.imageUrl}"
+                alt="${reviewDetails.title}"
             />
             <div>
                 <p class="title">
-                   ${blogDetails.title}
+                   ${reviewDetails.title}
                 </p>
-
-                <div class="info">
-                    <div class="tag">${blogDetails.tag}</div>
-                    <div class="date">${formatDate(blogDetails.createdAt)}</div>
-                </div>
 
                 <p class="description">
-                    ${blogDetails.description}
+                    ${reviewDetails.description}
                 </p>
+
+                <a href="${reviewDetails.targetUrl}" target="_blank" class="link">View Details</a>                        
             </div>
 
     `;
 
-        blogContainer.appendChild(blogDetailsElement);
+        reviewsContainer.appendChild(reviewDetailsElement);
 
         const imageUrl = document.querySelector("#imageUrl");
-        const blogTitle = document.querySelector("#blogTitle");
-        const tag = document.querySelector("#tag");
+        const bookTitle = document.querySelector("#bookTitle");
         const description = document.querySelector("#description");
+        const targetUrl = document.querySelector("#targetUrl");
 
-        imageUrl.value = blogDetails.imageUrl;
-        blogTitle.value = blogDetails.title;
-        tag.value = blogDetails.tag;
-        description.value = blogDetails.description;
+        imageUrl.value = reviewDetails.imageUrl;
+        bookTitle.value = reviewDetails.title;
+        description.value = reviewDetails.description;
+        targetUrl.value = reviewDetails.targetUrl;
 
-        const updateBlogBtn = document.querySelector(".submit-btn");
-        updateBlogBtn?.addEventListener("click", (e) => {
+        const updateReviewBtn = document.querySelector(".update-review-btn");
+        updateReviewBtn?.addEventListener("click", (e) => {
             // update details on localstorage
-            const updatedBlog = {
-                ...blogDetails,
-                title: blogTitle.value,
+            const updatedReviewDetails = {
+                ...reviewDetails,
+                title: bookTitle.value,
                 imageUrl: imageUrl.value,
                 description: description.value,
-                tag: tag.value,
+                targetUrl: targetUrl.value,
             };
 
-            const userBlogs = userDetails?.blogs.map((blog) => {
-                if (blog.id === blogId) {
-                    return updatedBlog;
+            const userReviews = userDetails?.reviews.map((review) => {
+                if (review.id === reviewId) {
+                    return updatedReviewDetails;
                 }
 
-                return blog;
+                return review;
             });
 
             const newUserDetails = {
                 ...userDetails,
-                blogs: [...userBlogs],
+                reviews: [...userReviews],
             };
 
             localStorage.setItem("userDetails", JSON.stringify(newUserDetails));
@@ -435,8 +416,8 @@
             window.location.reload();
         });
 
-        const deleteBlogBtn = document.querySelector(".delete-btn");
-        deleteBlogBtn?.addEventListener("click", (e) => {
+        const deleteReviewBtn = document.querySelector(".delete-btn");
+        deleteReviewBtn?.addEventListener("click", (e) => {
             Swal.fire({
                 title: "Confirm Delete",
                 text: "You won't be able to revert this action.",
@@ -452,27 +433,32 @@
                 if (result.isConfirmed) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Blog has been successfully deleted.", // Display the data from the first modal
+                        text: "Details review has been successfully deleted.", // Display the data from the first modal
                         icon: "success",
                         confirmButtonText: "OK",
                     }).then((res) => {
                         if (res.isConfirmed || res.isDismissed) {
-                            const userBlogs = userDetails?.blogs.filter(
-                                (blog) => {
-                                    return blog.id !== blogId;
+                            const userReviews = userDetails?.reviews.filter(
+                                (review) => {
+                                    return review.id !== reviewId;
                                 }
                             );
+
+                            console.log('====================================');
+                            console.log("userReviews: ", userReviews);
+                            console.log('====================================');
+
                             const newUserDetails = {
                                 ...userDetails,
-                                blogs: [...userBlogs],
+                                reviews: [...userReviews],
                             };
+
                             localStorage.setItem(
                                 "userDetails",
                                 JSON.stringify(newUserDetails)
                             );
 
-                            const users =
-                                JSON.parse(localStorage.getItem("users")) || [];
+                            const users = JSON.parse(localStorage.getItem("users")) || [];
                             const updatedUsers = users?.map((user) => {
                                 if (user.id === userDetails.id) {
                                     return newUserDetails;
@@ -486,7 +472,7 @@
                                 JSON.stringify(updatedUsers)
                             );
 
-                            window.location.href = "/pages/blog.html";
+                            window.location.href = "/pages/gallery.html";
                         }
                     });
                 }

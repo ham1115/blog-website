@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Welcome to my personal portfolio where I share my thoughts, blog posts, and creative projects."
+        />
+        <meta
+            name="keywords"
+            content="blog, portfolio, web development, coding, creativity"
+        />
+
+        <!-- Static Open Graph for social media -->
+        <meta property="og:title" content="InkWell - My Personal Portfolio" />
+        <meta
+            property="og:description"
+            content="Explore my latest blog post where I share insights about events and creative projects."
+        />
+        <meta property="og:type" content="article" />
+        <link
+            rel="icon"
+            href="/favicon/favicon-32x32.png"
+            sizes="32x32"
+            type="image/png"
+        />
+        <link
+            rel="icon"
+            href="/favicon/favicon-16x16.png"
+            sizes="16x16"
+            type="image/png"
+        />
+        <base href="/blog-website/" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <link rel="stylesheet" href="/style/gallery.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <script src="/main.js" defer></script>
+        <!-- <link rel="stylesheet" href="root.css" />
+        <link rel="stylesheet" href="style/auth.css" />
+        <link rel="stylesheet" href="style/blog.css" />
+        <link rel="stylesheet" href="style/modal.css" />
+        <script src="main.js" defer></script> -->
+        <title>InkWell - Gallery Reviews</title>
+    </head>
+    <body>
+        <!-- MOBILE Header -->
+        <header class="main-header container mobile-header">
+            <a href="/blog-website/" class="nav-link logo">InkWell</a>
+
+            <!-- Social Links -->
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="floating-link-container hide">
+                <div class="nav-links">
+                    <ul>
+                        <li>
+                            <a href="pages/about.html" class="nav-link"
+                                >about</a
+                            >
+                        </li>
+                        <li>
+                            <a href="pages/gallery.html" class="nav-link"
+                                >gallery</a
+                            >
+                        </li>
+                        <li>
+                            <a href="pages/blog.html" class="nav-link">blog</a>
+                        </li>
+                        <li>
+                            <a href="pages/contact.html" class="nav-link"
+                                >contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="social-links">
+                    <ul>
+                        <li>
+                            <a
+                                href="#"
+                                class="social-link facebook"
+                                data-type="facebook"
+                                target="_blank"
+                            >
+                                <img
+                                    src="/assets/socials/facebook.png"
+                                    alt="Facebook"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="social-link instagram"
+                                data-type="instagram"
+                                target="_blank"
+                            >
+                                <img
+                                    src="/assets/socials/instagram.png"
+                                    alt="Instagram"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="social-link twitter"
+                                data-type="twitter"
+                                target="_blank"
+                            >
+                                <img
+                                    src="/assets/socials/x.png"
+                                    alt="X / Twitter"
+                                />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="auth-links">
+                    <a href="pages/login.html" class="auth-link"> Log in </a>
+                    <a href="pages/signup.html" class="auth-link signup"
+                        >Sign up</a
+                    >
+                </div>
+
+                <button class="primary-btn-inverted log-out-link">
+                    Log out
+                </button>
+            </nav>
+        </header>
+
+        <!-- DESKTOP Header -->
+        <header class="main-header container desktop-header">
+            <!-- Social Links -->
+            <div class="social-links">
+                <ul>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link facebook"
+                            data-type="facebook"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/facebook.png"
+                                alt="Facebook"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link instagram"
+                            data-type="instagram"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/instagram.png"
+                                alt="Instagram"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="social-link twitter"
+                            data-type="twitter"
+                            target="_blank"
+                        >
+                            <img
+                                src="/assets/socials/x.png"
+                                alt="X / Twitter"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="pages/about.html" class="nav-link">about</a>
+                    </li>
+                    <li>
+                        <a href="pages/gallery.html" class="nav-link"
+                            >gallery</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/blog-website/" class="nav-link logo"
+                            >InkWell</a
+                        >
+                    </li>
+                    <li>
+                        <a href="pages/blog.html" class="nav-link">blog</a>
+                    </li>
+                    <li>
+                        <a href="pages/contact.html" class="nav-link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="auth-links">
+                <a href="pages/login.html" class="auth-link"> Log in </a>
+                <a href="pages/signup.html" class="auth-link signup">Sign up</a>
+            </div>
+
+            <button class="primary-btn log-out-link">Log out</button>
+        </header>
+
+        <div class="page-thumb">
+            <img src="/assets/trees.jpg" alt="Trees" />
+        </div>
+
+        <main class="container" id="gallery">
+            <div class="heading">
+                <h1 class="page-title">book reviews</h1>
+                <p class="page-subtitle">A Glimpse into My World</p>
+            </div>
+
+            <button id="openModalBtn" class="primary-btn mt-4">
+                Add Review
+            </button>
+
+            <div class="gallery-grid"></div>
+        </main>
+
+        <div id="modal-popup" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="closeBtn" class="close">&times;</span>
+                <p class="add-review-title">Add Book Review</p>
+
+                <div class="form">
+                    <div class="form-group">
+                        <label for="imageUrl">Thumbnail URL</label>
+                        <input
+                            id="imageUrl"
+                            type="text"
+                            placeholder="Enter image url"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookTitle">Book Title</label>
+                        <input
+                            id="bookTitle"
+                            type="text"
+                            placeholder="Enter book title"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetUrl">Target URL</label>
+                        <input
+                            id="targetUrl"
+                            type="text"
+                            placeholder="Enter URL for redirection"
+                            max="255"
+                        />
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Write something..."
+                            rows="8"
+                        ></textarea>
+                        <div class="error-msg" id="error-username"></div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="primary-btn cancel-btn">
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            class="primary-btn-inverted submit-btn add-review-btn"
+                        >
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const imageUrl = document.querySelector("#imageUrl");
+        const bookTitle = document.querySelector("#bookTitle");
+        const description = document.querySelector("#description");
+        const targetUrl = document.querySelector("#targetUrl");
+        const addReviewBtn = document.querySelector(".add-review-btn");
+
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+
+        if (userDetails) {
+            if (userDetails.reviews?.length > 0) {
+                const reviewsContainer =
+                    document.querySelector(".gallery-grid");
+
+                userDetails.reviews.forEach((review) => {
+                    const { id, title, targetUrl, imageUrl, description } =
+                        review;
+
+                    const newReview = document.createElement("a");
+                    newReview.classList.add("book-review");
+                    newReview.href = `pages/gallery-details.html?id=${id}`;
+                    newReview.innerHTML = `
+                        <img
+                            class="thumbnail"
+                            src="${imageUrl}"
+                            alt="thumbnail"
+                        />
+                        <div>
+                            <p class="title">${title}</p>
+                            <p class="description">
+                                ${description}
+                            </p>
+                            <div class="link">View Details</div>                        
+                        </div>
+            `;
+
+                    reviewsContainer.appendChild(newReview);
+                });
+            } else {
+                // No reviews yet
+            }
+
+            addReviewBtn?.addEventListener("click", (e) => {
+                const newReview = {
+                    id: Math.random().toString(),
+                    title: bookTitle.value,
+                    imageUrl: imageUrl.value,
+                    description: description.value,
+                    targetUrl: targetUrl.value,
+                    createdAt: new Date(),
+                };
+
+                const userReviews = userDetails?.reviews || [];
+                userReviews?.push(newReview);
+
+                const newUserDetails = {
+                    ...userDetails,
+                    reviews: [...userReviews],
+                };
+
+                localStorage.setItem(
+                    "userDetails",
+                    JSON.stringify(newUserDetails)
+                );
+
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+                const updatedUsers = users?.map((user) => {
+                    if (user.id === userDetails.id) {
+                        return newUserDetails;
+                    }
+
+                    return user;
+                });
+
+                localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+                window.location.reload();
+            });
+        }
+    </script>
+</html>

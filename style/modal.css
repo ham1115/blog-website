@@ -30,6 +30,10 @@
     padding: 1rem;
     margin: 10% auto;
     width: 95%;
+    overflow: auto;
+    height: fit-content;
+    min-height: 50vh;
+    max-height: 80vh;
 }
 
 .modal-content textarea {

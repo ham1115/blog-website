@@ -1,0 +1,184 @@
+.add-review-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: "Lora", serif;
+    text-align: center;
+}
+
+.form .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.form .actions button {
+    text-transform: capitalize;
+}
+
+.submit-btn {
+    margin: 0;
+}
+
+.gallery-grid {
+    margin-top: 4rem;
+    display: grid;
+    gap: 3rem;
+    align-items: stretch;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: 1fr;
+}
+
+.book-review {
+    display: flex;
+    color: #333;
+    text-decoration: none;
+    gap: 1rem;
+    transition: all 0.25s ease;
+    flex-direction: column;
+}
+
+.book-review:hover {
+    transform: translateY(-3px);
+}
+
+.thumbnail {
+    width: 100%;
+    object-fit: cover;
+    height: 22rem;
+}
+
+.text-content {
+    padding: 1rem;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: #e0c8c6;
+    text-transform: uppercase;
+    font-weight: 300;
+    width: fit-content;
+    padding: 0.25rem 1rem;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-family: "Lora", serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+.description {
+    font-weight: 300;
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 7.5em;
+    line-height: 1.5em;
+}
+
+.link {
+    text-decoration: underline;
+    margin-top: 2rem;
+    display: block;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+/* review-container */
+
+.review-container {
+    /* margin-top: 4rem; */
+    position: relative;
+}
+
+.review-container .main-content {
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; */
+}
+
+.review-container .description {
+    font-size: 1.05rem;
+}
+
+.review-container .info {
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.review-container .thumbnail {
+    /* width: 20rem; */
+    /* height: 30rem; */
+    width: auto;
+    object-fit: cover;
+    height: 25rem;
+}
+
+.actions-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    position: absolute;
+    right: 0;
+    top: -4rem;
+}
+
+.actions-btn button {
+    border: none;
+    background: none;
+}
+
+.action-btn img {
+    width: 2.5rem;
+}
+
+.delete-btn img {
+    width: 2.4rem;
+}
+
+@media (min-width: 768px) {
+    .book-review {
+        flex-direction: row;
+    }
+
+    .thumbnail {
+        width: 20rem;
+    }
+
+    .review-container .main-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .actions-btn {
+        top: -3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1440px) {
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1920px) {
+}
