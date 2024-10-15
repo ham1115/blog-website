@@ -3,9 +3,38 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href="/blog-website/">
-        <link rel="stylesheet" href="root.css" />
-        <link rel="stylesheet" href="style/landing.css" />
+        <meta
+            name="description"
+            content="Welcome to my personal portfolio where I share my thoughts, blog posts, and creative projects."
+        />
+        <meta
+            name="keywords"
+            content="blog, portfolio, web development, coding, creativity"
+        />
+
+        <!-- Static Open Graph for social media -->
+        <meta property="og:title" content="InkWell - My Personal Portfolio" />
+        <meta
+            property="og:description"
+            content="Explore my latest blog post where I share insights about events and creative projects."
+        />
+        <meta property="og:type" content="article" />
+        <link
+            rel="icon"
+            href="/favicon/favicon-32x32.png"
+            sizes="32x32"
+            type="image/png"
+        />
+        <link
+            rel="icon"
+            href="/favicon/favicon-16x16.png"
+            sizes="16x16"
+            type="image/png"
+        />
+
+        <base href="/blog-website/" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/landing.css" />
         <script src="main.js" defer></script>
         <title>InkWell - Home</title>
     </head>
@@ -107,10 +136,7 @@
                     </li>
                     <li>
                         <a href="#" class="social-link">
-                            <img
-                                src="assets/socials/x.png"
-                                alt="X / Twitter"
-                            />
+                            <img src="assets/socials/x.png" alt="X / Twitter" />
                         </a>
                     </li>
                 </ul>
@@ -128,7 +154,9 @@
                         >
                     </li>
                     <li>
-                        <a href="/blog-website/" class="nav-link logo">InkWell</a>
+                        <a href="/blog-website/" class="nav-link logo"
+                            >InkWell</a
+                        >
                     </li>
                     <li>
                         <a href="pages/blog.html" class="nav-link">blog</a>
@@ -143,9 +171,7 @@
 
             <div class="auth-links">
                 <a href="pages/login.html" class="auth-link"> Log in </a>
-                <a href="pages/signup.html" class="auth-link signup"
-                    >Sign up</a
-                >
+                <a href="pages/signup.html" class="auth-link signup">Sign up</a>
             </div>
         </header>
 
@@ -161,7 +187,9 @@
                         understanding that progress is made through small,
                         meaningful steps.
                     </p>
-                    <a href="/contact" class="primary-btn contact-btn"> Contact </a>
+                    <a href="/contact" class="primary-btn contact-btn">
+                        Contact
+                    </a>
                 </div>
                 <img
                     src="assets/hero-img.jpg"
