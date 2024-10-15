@@ -36,10 +36,10 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="root.css" />
-        <link rel="stylesheet" href="style/modal.css" />
-        <link rel="stylesheet" href="style/auth.css" />
-        <script src="main.js" defer></script>
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/modal.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
+        <script src="/main.js" defer></script>
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
@@ -464,21 +464,16 @@
                 clearError(errorEmail);
             }
 
-            // Validate email
-            if (!email.value) {
-                showError(errorEmail, "Email is required.");
-            } else {
-                clearError(errorEmail);
-            }
+            if (email.value) {
+                const existingUser = users.find(
+                    (user) => user.email === email?.value
+                );
 
-            const existingUser = users.find(
-                (user) => user.email === email?.value
-            );
-
-            if (existingUser) {
-                showError(errorEmail, "Email already exists.");
-            } else {
-                clearError(errorEmail);
+                if (existingUser) {
+                    showError(errorEmail, "Email already exists.");
+                } else {
+                    clearError(errorEmail);
+                }
             }
 
             // Validate password
