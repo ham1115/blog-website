@@ -32,6 +32,16 @@
     width: 95%;
 }
 
+.modal-content textarea {
+    resize: vertical;
+}
+
+.modal-content input,
+.modal-content textarea {
+    color: #888;
+    font-weight: 300;
+}
+
 /* Close Button */
 .close {
     color: #aaa;
@@ -46,6 +56,35 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.blog-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: "Lora", serif;
+    text-align: center;
+}
+
+.blog-actions,
+.modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
+}
+
+.blog-actions button,
+.modal-actions button {
+    text-transform: capitalize;
+}
+
+.subtitle {
+    width: 100%;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
