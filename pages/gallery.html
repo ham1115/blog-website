@@ -315,7 +315,7 @@
                 const reviewsContainer =
                     document.querySelector(".gallery-grid");
 
-                userDetails.reviews.forEach((review) => {
+                userDetails.reviews.reverse().forEach((review) => {
                     const { id, title, targetUrl, imageUrl, description } =
                         review;
 

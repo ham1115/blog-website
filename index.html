@@ -246,6 +246,120 @@
 
                 <img src="assets/leaves.png" class="leaves" alt="Leaves" />
             </section>
+
+            <section class="about-section container">
+                <img src="" alt="About" class="about-image" />
+                <div class="about-info">
+                    <p class="section-title dark">about.</p>
+                    <p class="about-description"></p>
+                    <a href="/pages/about.html" class="link">Read More</a>
+                    <img
+                        src="/assets/hand-with-flower.png"
+                        alt="Hand with Flower"
+                        class="hand-with-flower"
+                    />
+                </div>
+            </section>
+
+            <div class="gallery-section container">
+                <div class="section-title">gallery reviews.</div>
+                <p class="section-title-sub">A Glimpse into My World</p>
+                <div class="grid"></div>
+                <a href="/pages/gallery.html" class="link">See More</a>
+            </div>
+
+            <div class="blog-section container">
+                <div class="section-title">blogs.</div>
+                <p class="section-title-sub">
+                    Tales from the Path Less Traveled
+                </p>
+                <div class="blogs-list"></div>
+            </div>
         </main>
     </body>
+
+    <script>
+        const aboutDescription = document.querySelector(".about-description");
+        const aboutImage = document.querySelector(".about-image");
+        const galleryGrid = document.querySelector(".gallery-section .grid");
+        const blogsList = document.querySelector(".blogs-list");
+
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+        console.log("====================================");
+        console.log(userDetails);
+        console.log("====================================");
+
+        if (userDetails) {
+            // about -------------
+            aboutDescription.textContent = userDetails.description;
+            aboutImage.src = userDetails.pictureUrl;
+
+            // gallery -------------
+            if (userDetails?.reviews.length) {
+                userDetails.reviews?.reverse().forEach((review) => {
+                    const galleryImg = document.createElement("img");
+                    galleryImg.alt = review.title;
+                    galleryImg.src = review.imageUrl;
+
+                    galleryGrid.appendChild(galleryImg);
+                });
+            }
+
+            // blogs -------------
+            if (userDetails?.blogs.length) {
+                userDetails.blogs
+                    .reverse()
+                    .slice(0, 3)
+                    .forEach((blog) => {
+                        const blogItem = document.createElement("div");
+                        blogItem.classList.add("blog");
+
+                        blogItem.innerHTML = `
+                        <div>
+                            <div class="blog-title">
+                                ${blog.title}
+                            </div>
+                            <div class="blog-tag">${blog.tag}</div>
+                        </div>
+                        <img
+                            class="blog-img"
+                            src="${blog.imageUrl}"
+                            alt="${blog.title}"
+                        />
+                        <div>
+                            <p class="blog-description">
+                               ${blog.description}
+                            </p>
+                            <p class="blog-date">${formatDate(
+                                blog.createdAt
+                            )}</p>
+                            <a href="/pages/blog-details.html?id=${
+                                blog.id
+                            }" class="link"
+                                >Read More</a
+                            >
+                        </div>
+                    `;
+
+                        blogsList.appendChild(blogItem);
+                    });
+            }
+        }
+
+        function formatDate(isoDateString) {
+            // Convert to Date object
+            const dateObject = new Date(isoDateString);
+
+            // Check if the date is valid
+            if (isNaN(dateObject)) {
+                throw new Error("Invalid date string");
+            }
+
+            // Options for formatting
+            const options = { year: "numeric", month: "long", day: "numeric" };
+
+            // Format the date
+            return dateObject.toLocaleDateString("en-US", options);
+        }
+    </script>
 </html>
