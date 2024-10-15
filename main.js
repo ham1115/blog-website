@@ -91,11 +91,11 @@ if (formGroupPassword) {
         eyeIcon.addEventListener("click", (e) => {
             if (passwordInput.type === "password") {
                 passwordInput.type = "text"; // Show password
-                eyeIcon.src = "/assets/hide.png"; // Change to hide-eye icon
+                eyeIcon.src = "assets/hide.png"; // Change to hide-eye icon
                 eyeIcon.alt = "Hide Password";
             } else {
                 passwordInput.type = "password"; // Hide password
-                eyeIcon.src = "/assets/show.png"; // Change to hide-eye icon
+                eyeIcon.src = "assets/show.png"; // Change to hide-eye icon
                 eyeIcon.alt = "Show Password";
             }
         });
@@ -113,11 +113,11 @@ if (formGroupConfirmPassword) {
         eyeIcon.addEventListener("click", (e) => {
             if (passwordInput.type === "password") {
                 passwordInput.type = "text"; // Show password
-                eyeIcon.src = "/assets/hide.png"; // Change to hide-eye icon
+                eyeIcon.src = "assets/hide.png"; // Change to hide-eye icon
                 eyeIcon.alt = "Hide Password";
             } else {
                 passwordInput.type = "password"; // Hide password
-                eyeIcon.src = "/assets/show.png"; // Change to hide-eye icon
+                eyeIcon.src = "assets/show.png"; // Change to hide-eye icon
                 eyeIcon.alt = "Show Password";
             }
         });
