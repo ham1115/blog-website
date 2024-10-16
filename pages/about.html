@@ -620,13 +620,14 @@
                         document.querySelector(".placeholder").style.display =
                             "none";
                     };
+
+                    embedContainer.appendChild(iframe);
+
                     // iframe.onerror = function () {
                     //     alert("The iframe is broken or failed to load!");
                     // };
                 }
             }
-
-            embedContainer.appendChild(iframe);
 
             // videoPlaceholder.src = userDetails.embedCode
             //     ? userDetails.embedCode
