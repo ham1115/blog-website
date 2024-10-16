@@ -37,13 +37,13 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="/root.css" />
-        <link rel="stylesheet" href="/style/landing.css" />
+        <link rel="stylesheet" href="root.css" />
+        <link rel="stylesheet" href="style/landing.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
         ></script>
-        <script src="/main.js" defer></script>
+        <script src="main.js" defer></script>
         <title>InkWell - Home</title>
     </head>
     <body>
@@ -352,17 +352,14 @@
     </body>
 
     <script>
+        const aboutDescription = document.querySelector(".about-description");
+        const aboutImage = document.querySelector(".about-image");
+        const galleryGrid = document.querySelector(".gallery-section .grid");
+        const blogsList = document.querySelector(".blogs-list");
+
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
         if (userDetails) {
-            const aboutDescription =
-                document.querySelector(".about-description");
-            const aboutImage = document.querySelector(".about-image");
-            const galleryGrid = document.querySelector(
-                ".gallery-section .grid"
-            );
-            const blogsList = document.querySelector(".blogs-list");
-
             // about -------------
             aboutDescription.textContent = userDetails.description
                 ? userDetails.description
@@ -458,14 +455,53 @@
                 });
             }
         } else {
-            const bodySection = document.querySelector("body");
-            bodySection.classList.add("not-found");
-            bodySection.innerHTML = `
-                <div>
-                <h1>404</h1> 
-                <p>The page you're looking for doesn't exist.</p>
-                <a href="pages/login.html" class="link">Log in</a
-                </div>`;
+            aboutDescription.textContent =
+                "Description goes here once you update your info in the about page...";
+            aboutImage.src = userDetails.pictureUrl[
+                // these will serve as placeholders for gallery
+                (0, 0, 0, 0)
+            ].forEach((item) => {
+                const galleryImg = document.createElement("img");
+                galleryImg.src = "assets/img-placeholder.jpg";
+                galleryGrid.appendChild(galleryImg);
+            });
+
+            // these will serve as placeholders for blogs
+
+            [0, 0].forEach((blog) => {
+                const blogItem = document.createElement("div");
+                blogItem.classList.add("blog");
+
+                blogItem.innerHTML = `
+                        <div>
+                            <div class="blog-title">
+                                Title
+                            </div>
+                            <div class="blog-tag">Tag</div>
+                        </div>
+                        <img
+                            class="blog-img"
+                            src="assets/img-placeholder.jpg"
+                            alt="Placeholder"
+                        />
+                        <div>
+                            <p class="blog-description">
+                               Description goes here once you add some blogs...
+                            </p>
+                        </div>
+                    `;
+
+                blogsList.appendChild(blogItem);
+            });
+
+            // const bodySection = document.querySelector("body");
+            // bodySection.classList.add("not-found");
+            // bodySection.innerHTML = `
+            //     <div>
+            //     <h1>Unauthorized.</h1>
+            //     <p>Please log in first in order to access this page.</p>
+            //     <a href="pages/login.html" class="link">Log in</a
+            //     </div>`;
         }
 
         function formatDate(isoDateString) {
