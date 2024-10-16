@@ -170,3 +170,14 @@ video {
         padding: 2rem;
     }
 }
+
+.video .placeholder {
+    width: 100%;
+    object-fit: cover;
+    height: 35rem;
+}
+
+iframe {
+    height: 35rem;
+    width: 100%;
+}

@@ -442,7 +442,34 @@
                     blogsContainer.appendChild(newBlog);
                 });
             } else {
-                // No blogs yet
+                const blogsContainer = document.querySelector(".blogs-grid");
+
+                [1, 2, 3].forEach((blog) => {
+                    const newBlog = document.createElement("div");
+                    newBlog.classList.add("blog");
+                    newBlog.innerHTML = `
+               <div>
+                    <img
+                        class="thumbnail"
+                        src="assets/img-placeholder.jpg"
+                    />
+
+                    <div class="text-content">
+                        <div class="info">
+                            <div class="tag">Tag</div>
+                        </div>
+
+                        <div class="title">Example ${blog}</div>
+
+                        <p class="description">
+                           Description goes here once you add your blogs!
+                        </p>
+                    </div>
+                </div>
+            `;
+
+                    blogsContainer.appendChild(newBlog);
+                });
             }
         };
 

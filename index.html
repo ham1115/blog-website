@@ -37,13 +37,13 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="root.css" />
-        <link rel="stylesheet" href="style/landing.css" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/landing.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
         ></script>
-        <script src="main.js" defer></script>
+        <script src="/main.js" defer></script>
         <title>InkWell - Home</title>
     </head>
     <body>
@@ -248,7 +248,11 @@
             </section>
 
             <section class="about-section container">
-                <img src="assets/bee.jpg" alt="About" class="about-image" />
+                <img
+                    src="assets/img-placeholder.jpg"
+                    alt="About"
+                    class="about-image"
+                />
                 <div class="about-info">
                     <p class="section-title dark">about.</p>
                     <p class="about-description"></p>
@@ -348,25 +352,41 @@
     </body>
 
     <script>
-        const aboutDescription = document.querySelector(".about-description");
-        const aboutImage = document.querySelector(".about-image");
-        const galleryGrid = document.querySelector(".gallery-section .grid");
-        const blogsList = document.querySelector(".blogs-list");
-
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
         if (userDetails) {
+            const aboutDescription =
+                document.querySelector(".about-description");
+            const aboutImage = document.querySelector(".about-image");
+            const galleryGrid = document.querySelector(
+                ".gallery-section .grid"
+            );
+            const blogsList = document.querySelector(".blogs-list");
+
             // about -------------
-            aboutDescription.textContent = userDetails.description;
-            aboutImage.src = userDetails.pictureUrl;
+            aboutDescription.textContent = userDetails.description
+                ? userDetails.description
+                : "Description goes here once you update your info in the about page...";
+            aboutImage.src = userDetails.pictureUrl
+                ? userDetails.pictureUrl
+                : aboutImage.src;
 
             // gallery -------------
             if (userDetails?.reviews.length) {
                 userDetails.reviews?.reverse().forEach((review) => {
                     const galleryImg = document.createElement("img");
                     galleryImg.alt = review.title;
-                    galleryImg.src = review.imageUrl;
+                    galleryImg.src = review.imageUrl
+                        ? review.imageUrl
+                        : "assets/img-placeholder.jpg";
 
+                    galleryGrid.appendChild(galleryImg);
+                });
+            } else {
+                // these will serve as placeholders
+                [0, 0, 0, 0].forEach((item) => {
+                    const galleryImg = document.createElement("img");
+                    galleryImg.src = "assets/img-placeholder.jpg";
                     galleryGrid.appendChild(galleryImg);
                 });
             }
@@ -409,6 +429,33 @@
 
                         blogsList.appendChild(blogItem);
                     });
+            } else {
+                // these will serve as placeholders
+                [0, 0].forEach((blog) => {
+                    const blogItem = document.createElement("div");
+                    blogItem.classList.add("blog");
+
+                    blogItem.innerHTML = `
+                        <div>
+                            <div class="blog-title">
+                                Title
+                            </div>
+                            <div class="blog-tag">Tag</div>
+                        </div>
+                        <img
+                            class="blog-img"
+                            src="assets/img-placeholder.jpg"
+                            alt="Placeholder"
+                        />
+                        <div>
+                            <p class="blog-description">
+                               Description goes here once you add some blogs...
+                            </p>
+                        </div>
+                    `;
+
+                    blogsList.appendChild(blogItem);
+                });
             }
         } else {
             const bodySection = document.querySelector("body");

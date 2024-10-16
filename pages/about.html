@@ -235,7 +235,10 @@
             </button>
 
             <div class="about-info">
-                <img src="" class="picture-placeholder" />
+                <img
+                    src="assets/img-placeholder.jpg"
+                    class="picture-placeholder"
+                />
                 <p class="description-placeholder"></p>
                 <img
                     src="assets/hand-with-flower.png"
@@ -262,12 +265,23 @@
                 </div>
             </div>
 
-            <div class="video">
+            <div class="video embed-container">
                 <p class="section-title">Unfiltered: Behind the Scenes</p>
-                <video controls class="video-container">
-                    <source class="video-placeholder" src="" type="video/mp4" />
+
+                <img
+                    src="assets/video-placeholder.webp"
+                    alt=""
+                    class="placeholder"
+                />
+
+                <!-- <video controls class="video-container">
+                    <source
+                        class="video-placeholder"
+                        src="assets/img-placeholder.jpg"
+                        type="video/mp4"
+                    />
                     Your browser does not support the video tag.
-                </video>
+                </video> -->
             </div>
 
             <div class="cta">
@@ -383,11 +397,11 @@
 
                     <div class="video-input-container">
                         <div class="form-group">
-                            <label for="videoUrl">Video URL</label>
+                            <label for="embedCode">Video Embed Code</label>
                             <input
-                                id="videoUrl"
+                                id="embedCode"
                                 type="text"
-                                placeholder="Enter video URL"
+                                placeholder="Enter video embed code (e.g., youtube)"
                             />
                         </div>
                     </div>
@@ -518,12 +532,13 @@
 
         const videoContainer = document.querySelector(".video-container");
         const videoPlaceholder = document.querySelector(".video-placeholder");
+        const embedContainer = document.querySelector(".embed-container");
 
         const hobbiesValues = document.querySelector(".hobbies-values");
 
         const pictureUrl = document.getElementById("pictureUrl");
         const description = document.getElementById("description");
-        const videoUrl = document.getElementById("videoUrl");
+        const embedCode = document.getElementById("embedCode");
 
         const facebookUrl = document.getElementById("facebook");
         const instagramUrl = document.getElementById("instagram");
@@ -534,14 +549,15 @@
         const addInfoBtn = document.querySelector(".submit-btn");
 
         if (userDetails) {
-            userDetails.hobbies?.forEach((hobby) => {
-                const { title, description, whyLoveIt } = hobby;
+            if (userDetails.hobbies?.length) {
+                userDetails.hobbies?.forEach((hobby) => {
+                    const { title, description, whyLoveIt } = hobby;
 
-                const hobbyElement = document.createElement("div");
-                hobbyElement.classList.add("row");
-                hobbyElement.classList.add("col-3-row");
+                    const hobbyElement = document.createElement("div");
+                    hobbyElement.classList.add("row");
+                    hobbyElement.classList.add("col-3-row");
 
-                hobbyElement.innerHTML = `
+                    hobbyElement.innerHTML = `
                     <div class="col">${title}</div>
                     <div class="col">
                        ${description}
@@ -551,21 +567,75 @@
                     </div>
                 `;
 
-                hobbiesValues.appendChild(hobbyElement);
-            });
+                    hobbiesValues.appendChild(hobbyElement);
+                });
+            } else {
+                [0, 1].forEach((hobby) => {
+                    const hobbyElement = document.createElement("div");
+                    hobbyElement.classList.add("row");
+                    hobbyElement.classList.add("col-3-row");
+
+                    hobbyElement.innerHTML = `
+                    <div class="col">Example ${hobby}</div>
+                    <div class="col">
+                             Description goes here once you add your hobbies!
+                    </div>
+                    <div class="col">
+                      Content goes here once you add your hobbies!
+                    </div>
+                `;
+
+                    hobbiesValues.appendChild(hobbyElement);
+                });
+            }
 
             // assigning of values
-            picturePlaceholder.src = userDetails.pictureUrl || "";
+            picturePlaceholder.src = userDetails.pictureUrl
+                ? userDetails.pictureUrl
+                : picturePlaceholder.src;
             picturePlaceholder.alt = "Picture";
 
-            descriptionPlaceholder.textContent = userDetails.description || "";
+            descriptionPlaceholder.textContent =
+                userDetails.description ||
+                "Description goes here once you updated your info...";
 
-            videoPlaceholder.src = userDetails.videoUrl || "";
-            videoContainer.load();
+            // Create an iframe dynamically
+            const iframe = document.createElement("iframe");
+
+            // Set iframe attributes (you can customize these based on user input or defaults)
+            iframe.frameBorder = "0";
+            iframe.allow =
+                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+
+            const embedCodeSrc = userDetails.embedCode || "";
+
+            if (embedCodeSrc) {
+                const srcMatch = embedCodeSrc.match(/src="([^"]+)"/);
+
+                if (srcMatch) {
+                    const srcURL = srcMatch ? srcMatch[1] : embedCode;
+                    iframe.src = srcURL;
+                    iframe.onload = function () {
+                        document.querySelector(".placeholder").style.display =
+                            "none";
+                    };
+                    // iframe.onerror = function () {
+                    //     alert("The iframe is broken or failed to load!");
+                    // };
+                }
+            }
+
+            embedContainer.appendChild(iframe);
+
+            // videoPlaceholder.src = userDetails.embedCode
+            //     ? userDetails.embedCode
+            //     : videoPlaceholder.src;
+            // videoContainer.load();
 
             pictureUrl.value = userDetails.pictureUrl || "";
             description.value = userDetails.description || "";
-            videoUrl.value = userDetails.videoUrl || "";
+            embedCode.value = userDetails.embedCode || "";
 
             facebookUrl.value = userDetails.socialLinks?.facebook || "";
             instagramUrl.value = userDetails.socialLinks?.facebook || "";
@@ -615,7 +685,7 @@
                     ...userDetails,
                     pictureUrl: pictureUrl.value || "",
                     description: description.value || "",
-                    videoUrl: videoUrl.value || "",
+                    embedCode: embedCode.value || "",
                     hobbies: inputtedHobbies || [],
                     socialLinks: {
                         facebook: facebookUrl.value || "",

@@ -378,14 +378,12 @@
         const description = document.querySelector("#description");
         const targetUrl = document.querySelector("#targetUrl");
         const addReviewBtn = document.querySelector(".add-review-btn");
+        const reviewsContainer = document.querySelector(".gallery-grid");
 
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
         if (userDetails) {
             if (userDetails.reviews?.length > 0) {
-                const reviewsContainer =
-                    document.querySelector(".gallery-grid");
-
                 userDetails.reviews.reverse().forEach((review) => {
                     const { id, title, targetUrl, imageUrl, description } =
                         review;
@@ -411,7 +409,26 @@
                     reviewsContainer.appendChild(newReview);
                 });
             } else {
-                // No reviews yet
+                [(1, 2)].forEach((review) => {
+                    const newReview = document.createElement("div");
+                    newReview.classList.add("book-review");
+                    newReview.innerHTML = `
+                        <img
+                            class="thumbnail"
+                            src="assets/img-placeholder.jpg"
+                            alt="thumbnail"
+                        />
+                        <div>
+                            <p class="title">Example ${review}</p>
+                            <p class="description">
+                                Review description goes here once you add your book reviews!
+                            </p>
+                            <div class="link">View Details</div>                        
+                        </div>
+            `;
+
+                    reviewsContainer.appendChild(newReview);
+                });
             }
 
             addReviewBtn?.addEventListener("click", (e) => {
