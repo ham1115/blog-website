@@ -224,7 +224,12 @@ form .actions,
 @media (min-width: 1024px) {
     .signup-section {
         grid-template-columns: 40% 1fr;
-        height: 80vh;
+        min-height: 80vh;
+    }
+
+    .login-section {
+        height: auto;
+        min-height: 85vh;
     }
 
     .video-container {
