@@ -178,10 +178,7 @@
                             data-type="twitter"
                             target="_blank"
                         >
-                            <img
-                                src="assets/socials/x.png"
-                                alt="X / Twitter"
-                            />
+                            <img src="assets/socials/x.png" alt="X / Twitter" />
                         </a>
                     </li>
                 </ul>
@@ -234,7 +231,10 @@
                         understanding that progress is made through small,
                         meaningful steps.
                     </p>
-                    <a href="pages/contact.html" class="primary-btn contact-btn">
+                    <a
+                        href="pages/contact.html"
+                        class="primary-btn contact-btn"
+                    >
                         Contact
                     </a>
                 </div>
@@ -410,6 +410,15 @@
                         blogsList.appendChild(blogItem);
                     });
             }
+        } else {
+            const bodySection = document.querySelector("body");
+            bodySection.classList.add("not-found");
+            bodySection.innerHTML = `
+                <div>
+                <h1>404</h1> 
+                <p>The page you're looking for doesn't exist.</p>
+                <a href="pages/login.html" class="link">Log in</a
+                </div>`;
         }
 
         function formatDate(isoDateString) {

@@ -376,6 +376,17 @@
 
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
+        if (!userDetails) {
+            const bodySection = document.querySelector("body");
+            bodySection.classList.add("not-found");
+            bodySection.innerHTML = `
+                <div>
+                <h1>404</h1>
+                <p>The page you're looking for doesn't exist.</p>
+                <a href="pages/login.html" class="link">Log in</a
+                </div>`;
+        }
+
         function formatDate(isoDateString) {
             // Convert to Date object
             const dateObject = new Date(isoDateString);
@@ -412,15 +423,15 @@
                         src="${imageUrl}"
                         alt="${title}"
                     />
-    
+
                     <div class="text-content">
                         <div class="info">
                             <div class="tag">${tag}</div>
                             <div class="date">${formattedDate}</div>
                         </div>
-    
+
                         <div class="title">${title}</div>
-    
+
                         <p class="description">
                            ${description}
                         </p>
