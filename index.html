@@ -457,10 +457,9 @@
         } else {
             aboutDescription.textContent =
                 "Description goes here once you update your info in the about page...";
-            aboutImage.src = userDetails.pictureUrl[
-                // these will serve as placeholders for gallery
-                (0, 0, 0, 0)
-            ].forEach((item) => {
+
+            // these will serve as placeholders for gallery
+            [0, 0, 0, 0].forEach((item) => {
                 const galleryImg = document.createElement("img");
                 galleryImg.src = "assets/img-placeholder.jpg";
                 galleryGrid.appendChild(galleryImg);
