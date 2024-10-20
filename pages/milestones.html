@@ -367,8 +367,6 @@
 
         let currentEvent = null;
 
-        console.log(userDetails);
-
         if (!userDetails) {
             const bodySection = document.querySelector("body");
             bodySection.classList.add("not-found");
@@ -386,21 +384,25 @@
                     document.querySelector(".events-container");
 
                 for (const key in events) {
-                    const eventYearContainer = document.createElement("div");
-                    eventYearContainer.classList.add("event-year-container");
+                    if (events[key] && events[key].length > 0) {
+                        const eventYearContainer =
+                            document.createElement("div");
+                        eventYearContainer.classList.add(
+                            "event-year-container"
+                        );
 
-                    eventYearContainer.innerHTML = `
+                        eventYearContainer.innerHTML = `
                         <div class="year">
                             ${key}
                             <div class="line"></div>
                         </div>
                     `;
 
-                    // inner events
-                    events[key]?.forEach((event) => {
-                        const newEvent = document.createElement("div");
-                        const { id, title, description, createdAt } = event;
-                        newEvent.innerHTML = `
+                        // inner events
+                        events[key]?.forEach((event) => {
+                            const newEvent = document.createElement("div");
+                            const { id, title, description, createdAt } = event;
+                            newEvent.innerHTML = `
                             <div class="event">
                                 <img class="calendar-icon" src="assets/calendar.png" alt="Calendar" />
                                 <p class="event-title"><span class="label">Event:</span> <span class="text">${title}</span></p>
@@ -430,10 +432,11 @@
                                 </div>
                             </div>`;
 
-                        eventYearContainer.appendChild(newEvent);
-                    });
+                            eventYearContainer.appendChild(newEvent);
+                        });
 
-                    eventsContainer.appendChild(eventYearContainer);
+                        eventsContainer.appendChild(eventYearContainer);
+                    }
                 }
             } else {
                 const eventsContainer =
@@ -528,8 +531,6 @@
                         const newEventsYear = userDetails.events[year]?.map(
                             (event) => {
                                 if (event.id === eventId) {
-                                    console.log("here");
-
                                     return updatedEvent;
                                 }
                                 return event;
