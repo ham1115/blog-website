@@ -128,12 +128,32 @@ const modalPopup = document.querySelector("#modal-popup");
 
 if (modalPopup) {
     const openModalBtn = document.getElementById("openModalBtn");
+    const openEditModalBtn = document.querySelectorAll(".open-edit-modal-btn");
     const closeBtn = document.getElementById("closeBtn");
     const cancelBtn = document.querySelector(".cancel-btn");
     const modalActionBtn = document.querySelector(".modal-action-btn");
+    const addEventTitle = document.querySelector(".add-event-title");
+
+    const submitBtn = document.querySelector(".submit-btn");
 
     openModalBtn?.addEventListener("click", (e) => {
         modalPopup.style.display = "block";
+
+        if (addEventTitle && submitBtn) {
+            addEventTitle.textContent = "Add Event";
+            submitBtn.textContent = "Create";
+        }
+    });
+
+    openEditModalBtn.forEach((editBtn) => {
+        editBtn?.addEventListener("click", (e) => {
+            modalPopup.style.display = "block";
+
+            if (addEventTitle && submitBtn) {
+                addEventTitle.textContent = "Update Event";
+                submitBtn.textContent = "Update";
+            }
+        });
     });
 
     // When the user clicks on <span> (x), close the modal
