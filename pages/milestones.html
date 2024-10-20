@@ -36,15 +36,15 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="/root.css" />
-        <link rel="stylesheet" href="/style/auth.css" />
-        <link rel="stylesheet" href="/style/milestones.css" />
-        <link rel="stylesheet" href="/style/modal.css" />
+        <link rel="stylesheet" href="root.css" />
+        <link rel="stylesheet" href="style/auth.css" />
+        <link rel="stylesheet" href="style/milestones.css" />
+        <link rel="stylesheet" href="style/modal.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
         ></script>
-        <script src="/main.js" defer></script>
+        <script src="main.js" defer></script>
         <title>InkWell - Events</title>
     </head>
     <body>
@@ -221,7 +221,7 @@
         </header>
 
         <div class="page-thumb">
-            <img src="/assets/trees.jpg" alt="Trees" />
+            <img src="assets/trees.jpg" alt="Trees" />
         </div>
 
         <main class="container" id="blog">
@@ -402,7 +402,7 @@
                         const { id, title, description, createdAt } = event;
                         newEvent.innerHTML = `
                             <div class="event">
-                                <img class="calendar-icon" src="/assets/calendar.png" alt="Calendar" />
+                                <img class="calendar-icon" src="assets/calendar.png" alt="Calendar" />
                                 <p class="event-title"><span class="label">Event:</span> <span class="text">${title}</span></p>
                                 <p class="description">
                                     <span class="label">Description:</span>
@@ -416,7 +416,7 @@
                                         data-eventid="${event.id}"
                                         class="action-btn edit-btn open-edit-modal-btn"
                                     >
-                                        <img src="/assets/edit.png" alt="Edit" />
+                                        <img src="assets/edit.png" alt="Edit" />
                                     </button>
                                     <button
                                         type="button"
@@ -425,7 +425,7 @@
                                         data-eventid="${event.id}"
                                         class="action-btn delete-btn"
                                     >
-                                        <img src="/assets/delete.png" alt="Delete" />
+                                        <img src="assets/delete.png" alt="Delete" />
                                     </button>
                                 </div>
                             </div>`;
@@ -451,7 +451,7 @@
                                 </div>
 
                                 <div class="event">
-                                    <img class="calendar-icon" src="/assets/calendar.png" alt="Calendar" />
+                                    <img class="calendar-icon" src="assets/calendar.png" alt="Calendar" />
                                     <p class="event-title"><span class="label">Event:</span> <span class="text">Example ${index}</span></p>
                                     <p class="description">
                                         <span class="label">Description:</span>
