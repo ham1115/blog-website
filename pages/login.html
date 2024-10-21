@@ -37,13 +37,13 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="root.css" />
-        <link rel="stylesheet" href="style/auth.css" />
+        <link rel="stylesheet" href="/root.css" />
+        <link rel="stylesheet" href="/style/auth.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
         ></script>
-        <script src="main.js" defer></script>
+        <script src="/main.js" defer></script>
         <title>InkWell - Log in</title>
     </head>
     <body>
@@ -353,80 +353,97 @@
     </body>
 
     <script>
-        // Simple hash function using character codes
-        const simpleHash = (str) => {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                hash += str.charCodeAt(i);
-            }
-            return hash.toString(); // Convert to string to store
-        };
+        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
-        const login = (event) => {
-            event.preventDefault(); // Prevent default submit behavior (sending request to an API)
+        console.log("====================================");
+        console.log(userDetails);
+        console.log("====================================");
 
-            const email = document.getElementById("emailAddress");
-            const password = document.getElementById("password");
+        if (!userDetails) {
+            // Simple hash function using character codes
+            const simpleHash = (str) => {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    hash += str.charCodeAt(i);
+                }
+                return hash.toString(); // Convert to string to store
+            };
 
-            const errorMsg = document.querySelector(".error-msg");
+            const login = (event) => {
+                event.preventDefault(); // Prevent default submit behavior (sending request to an API)
 
-            if (!email.value || !password.value) {
-                errorMsg?.classList.remove("hide");
-                return;
-            }
+                const email = document.getElementById("emailAddress");
+                const password = document.getElementById("password");
 
-            const users = JSON.parse(localStorage.getItem("users")) || [];
+                const errorMsg = document.querySelector(".error-msg");
 
-            if (!users.length) {
-                return;
-            }
+                if (!email.value || !password.value) {
+                    errorMsg?.classList.remove("hide");
+                    return;
+                }
 
-            // find an existing user in the users array
-            const existingUser = users.find(
-                (user) => user.email === email?.value
-            );
+                const users = JSON.parse(localStorage.getItem("users")) || [];
 
-            if (!existingUser) {
-                errorMsg?.classList.remove("hide");
-                return;
-            }
+                if (!users.length) {
+                    return;
+                }
 
-            // check entered password if the email exists (registered)
-            if (existingUser.password !== simpleHash(password.value)) {
-                errorMsg?.classList.remove("hide");
-                return;
-            }
-
-            // remove error message
-            errorMsg?.classList.add("hide");
-
-            const submitBtn = document.querySelector(".submit-btn");
-            const spinner = document.querySelector(".spinner");
-
-            submitBtn.disabled = true;
-            spinner?.classList.add("show");
-
-            setTimeout(() => {
-                isSubmitting = false;
-                submitBtn.disabled = false;
-                spinner?.classList.remove("show");
-
-                isSuccessfulSignUp = true;
-
-                const userDetails = {
-                    ...existingUser,
-                    email: email.value,
-                    password: simpleHash(password.value),
-                };
-
-                localStorage.setItem(
-                    "userDetails",
-                    JSON.stringify(userDetails)
+                // find an existing user in the users array
+                const existingUser = users.find(
+                    (user) => user.email === email?.value
                 );
 
-                // redirect to about page
-                window.location.href = "pages/about.html";
-            }, 1500);
-        };
+                if (!existingUser) {
+                    errorMsg?.classList.remove("hide");
+                    return;
+                }
+
+                // check entered password if the email exists (registered)
+                if (existingUser.password !== simpleHash(password.value)) {
+                    errorMsg?.classList.remove("hide");
+                    return;
+                }
+
+                // remove error message
+                errorMsg?.classList.add("hide");
+
+                const submitBtn = document.querySelector(".submit-btn");
+                const spinner = document.querySelector(".spinner");
+
+                submitBtn.disabled = true;
+                spinner?.classList.add("show");
+
+                setTimeout(() => {
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    spinner?.classList.remove("show");
+
+                    isSuccessfulSignUp = true;
+
+                    const userDetails = {
+                        ...existingUser,
+                        email: email.value,
+                        password: simpleHash(password.value),
+                    };
+
+                    localStorage.setItem(
+                        "userDetails",
+                        JSON.stringify(userDetails)
+                    );
+
+                    // redirect to about page
+                    window.location.href = "pages/about.html";
+                }, 1500);
+            };
+        } else {
+            const bodySection = document.querySelector("body");
+            bodySection.classList.add("not-found");
+            bodySection.innerHTML = `
+                <div>
+                    <h2>You're already logged in.</h2> 
+                    <br>
+                    <a href="index.html" class="link">Back to Home</a
+                </div>`;
+        }
     </script>
 </html>
