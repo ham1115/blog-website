@@ -388,9 +388,9 @@
                     const { id, title, targetUrl, imageUrl, description } =
                         review;
 
-                    const newReview = document.createElement("a");
+                    const newReview = document.createElement("div");
                     newReview.classList.add("book-review");
-                    newReview.href = `pages/gallery-details.html?id=${id}`;
+                    // newReview.href = `pages/gallery-details.html?id=${id}`;
                     newReview.innerHTML = `
                         <img
                             class="thumbnail"
@@ -402,14 +402,14 @@
                             <p class="description">
                                 ${description}
                             </p>
-                            <div class="link">View Details</div>                        
+                            <a href="pages/gallery-details.html?id=${id}" class="link">View Details</a>                        
                         </div>
             `;
 
                     reviewsContainer.appendChild(newReview);
                 });
             } else {
-                [(1, 2)].forEach((review) => {
+                [1, 2].forEach((review) => {
                     const newReview = document.createElement("div");
                     newReview.classList.add("book-review");
                     newReview.innerHTML = `

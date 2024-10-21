@@ -97,6 +97,7 @@
     display: block;
     letter-spacing: 1px;
     color: #333;
+    cursor: pointer;
 }
 
 /* review-container */
