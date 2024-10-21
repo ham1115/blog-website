@@ -37,12 +37,7 @@
     color: #333;
     text-decoration: none;
     gap: 1rem;
-    transition: all 0.25s ease;
     flex-direction: column;
-}
-
-.book-review:hover {
-    transform: translateY(-3px);
 }
 
 .thumbnail {
@@ -97,7 +92,12 @@
     display: block;
     letter-spacing: 1px;
     color: #333;
+    transition: all 0.25s ease;
     cursor: pointer;
+}
+
+.link:hover {
+    transform: translateY(-1px);
 }
 
 /* review-container */
