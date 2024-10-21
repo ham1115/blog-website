@@ -8,25 +8,68 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 1rem;
-}
-.video-input-container {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    width: 100%;
 }
 
-.hobby-1 {
+.hobbies {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.hobby {
     border-bottom: 1px dashed rgba(0, 0, 0, 0.5);
     padding-bottom: 1rem;
+    position: relative;
 }
 
 .hobby .desc-container {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+}
+
+.add-hobby-btn {
+    background: none;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border: 1px solid #aaa;
+    margin-top: 1.5rem;
+    transition: all 0.25s ease;
+}
+
+.add-hobby-btn:hover {
+    transform: translateY(-1px);
+    background-color: #333;
+    color: #fff;
+}
+
+.delete-hobby-btn {
+    position: absolute;
+    width: 2.15rem;
+    background: none;
+    border: none;
+    transition: all 0.25s ease;
+    top: -1.25rem;
+    right: 0;
+}
+
+.delete-hobby-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.delete-hobby-btn img {
+    width: 100%;
+}
+
+.video-input-container {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 100%;
 }
 
 .about-info {
