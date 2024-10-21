@@ -134,16 +134,16 @@ video {
         height: 80vh;
     }
 
-    .social-links-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (min-width: 1440px) {
     .about-info {
         display: grid;
         grid-template-columns: 40% 60%;
     }
 
+    .social-links-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1440px) {
     .hand-with-flower {
         position: absolute;
         right: 0;
