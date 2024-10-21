@@ -124,9 +124,7 @@
 }
 
 .review-container .thumbnail {
-    /* width: 20rem; */
-    /* height: 30rem; */
-    width: auto;
+    width: 100%;
     object-fit: cover;
     height: 25rem;
 }
