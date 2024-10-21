@@ -37,13 +37,13 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         />
-        <link rel="stylesheet" href="/root.css" />
-        <link rel="stylesheet" href="/style/auth.css" />
+        <link rel="stylesheet" href="root.css" />
+        <link rel="stylesheet" href="style/auth.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"
             defer
         ></script>
-        <script src="/main.js" defer></script>
+        <script src="main.js" defer></script>
         <title>InkWell - Log in</title>
     </head>
     <body>
@@ -222,15 +222,15 @@
         <main class="container">
             <section class="login-section">
                 <div class="form-container">
-                    <form onsubmit="login(event)">
+                    <form onsubmit="return false;">
                         <p class="title">Log in</p>
 
                         <div class="form-group">
                             <label for="label">Email</label>
                             <input
-                                id="emailAddress"
-                                type="email"
-                                placeholder="Enter email address"
+                                id="emailOrUserName"
+                                type="text"
+                                placeholder="Enter email address or username"
                             />
                         </div>
                         <div class="form-group password form-group-password">
@@ -254,7 +254,7 @@
 
                         <div class="actions">
                             <button
-                                type="submit"
+                                type="button"
                                 class="primary-btn-inverted submit-btn"
                             >
                                 Log In
@@ -353,13 +353,13 @@
     </body>
 
     <script>
+        const users = JSON.parse(localStorage.getItem("users")) || [];
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
-        console.log("====================================");
-        console.log(userDetails);
-        console.log("====================================");
-
         if (!userDetails) {
+            const submitBtn = document.querySelector(".submit-btn");
+            const spinner = document.querySelector(".spinner");
+
             // Simple hash function using character codes
             const simpleHash = (str) => {
                 let hash = 0;
@@ -369,29 +369,29 @@
                 return hash.toString(); // Convert to string to store
             };
 
-            const login = (event) => {
-                event.preventDefault(); // Prevent default submit behavior (sending request to an API)
-
-                const email = document.getElementById("emailAddress");
+            const login = () => {
+                const emailOrUserName =
+                    document.getElementById("emailOrUserName");
                 const password = document.getElementById("password");
 
                 const errorMsg = document.querySelector(".error-msg");
 
-                if (!email.value || !password.value) {
+                if (!emailOrUserName.value || !password.value) {
                     errorMsg?.classList.remove("hide");
                     return;
                 }
-
-                const users = JSON.parse(localStorage.getItem("users")) || [];
 
                 if (!users.length) {
                     return;
                 }
 
                 // find an existing user in the users array
-                const existingUser = users.find(
-                    (user) => user.email === email?.value
-                );
+                const existingUser = users.find((user) => {
+                    return (
+                        user.email === emailOrUserName?.value ||
+                        user.username === emailOrUserName?.value
+                    );
+                });
 
                 if (!existingUser) {
                     errorMsg?.classList.remove("hide");
@@ -407,9 +407,6 @@
                 // remove error message
                 errorMsg?.classList.add("hide");
 
-                const submitBtn = document.querySelector(".submit-btn");
-                const spinner = document.querySelector(".spinner");
-
                 submitBtn.disabled = true;
                 spinner?.classList.add("show");
 
@@ -420,11 +417,7 @@
 
                     isSuccessfulSignUp = true;
 
-                    const userDetails = {
-                        ...existingUser,
-                        email: email.value,
-                        password: simpleHash(password.value),
-                    };
+                    const userDetails = existingUser;
 
                     localStorage.setItem(
                         "userDetails",
@@ -435,6 +428,10 @@
                     window.location.href = "pages/about.html";
                 }, 1500);
             };
+
+            submitBtn?.addEventListener("click", (e) => {
+                login();
+            });
         } else {
             const bodySection = document.querySelector("body");
             bodySection.classList.add("not-found");
@@ -442,7 +439,7 @@
                 <div>
                     <h2>You're already logged in.</h2> 
                     <br>
-                    <a href="/" class="link">Back to Home</a
+                    <a href="/blog-website/" class="link">Back to Home</a
                 </div>`;
         }
     </script>
