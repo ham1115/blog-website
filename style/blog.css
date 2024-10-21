@@ -115,9 +115,7 @@ form .actions button {
 }
 
 .blog-container .thumbnail {
-    /* width: 20rem; */
-    /* height: 30rem; */
-    width: auto;
+    width: 100%;
     object-fit: cover;
     height: 25rem;
 }
@@ -150,7 +148,8 @@ form .actions button {
     }
 
     .blog-container .main-content {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 40% 60%;
         gap: 2rem;
     }
 

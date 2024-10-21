@@ -163,7 +163,8 @@
     }
 
     .review-container .main-content {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 40% 60%;
         gap: 2rem;
     }
 
