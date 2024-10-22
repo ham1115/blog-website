@@ -180,10 +180,21 @@
 }
 
 @media (min-width: 1024px) {
+    .book-review {
+        grid-template-columns: 25% 70%;
+    }
+
+    .review-container .main-content {
+        grid-template-columns: 25% 70%;
+    }
 }
 
 @media (min-width: 1440px) {
     .book-review {
+        grid-template-columns: 25% 75%;
+    }
+
+    .review-container .main-content {
         grid-template-columns: 25% 75%;
     }
 }

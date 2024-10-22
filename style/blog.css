@@ -164,6 +164,9 @@ form .actions button {
 }
 
 @media (min-width: 1024px) {
+    .blog-container .main-content {
+        grid-template-columns: 25% 70%;
+    }
 }
 
 @media (min-width: 1440px) {
@@ -171,7 +174,9 @@ form .actions button {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-   
+    .blog-container .main-content {
+        grid-template-columns: 25% 75%;
+    }
 }
 
 @media (min-width: 1600px) {
