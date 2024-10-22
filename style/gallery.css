@@ -33,11 +33,13 @@
 }
 
 .book-review {
-    display: flex;
     color: #333;
     text-decoration: none;
     gap: 1rem;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .thumbnail {
@@ -74,7 +76,7 @@
     margin: 1rem 0;
 }
 
-.description {
+.book-review .description {
     font-weight: 300;
     font-size: 1rem;
     display: -webkit-box;
@@ -84,6 +86,11 @@
     text-overflow: ellipsis;
     max-height: 7.5em;
     line-height: 1.5em;
+}
+
+.description {
+    font-weight: 300;
+    font-size: 1rem;
 }
 
 .link {
@@ -153,12 +160,13 @@
 
 @media (min-width: 768px) {
     .book-review {
-        flex-direction: row;
+        grid-template-columns: 40% 60%;
+        gap: 2.5rem;
     }
 
-    .thumbnail {
+    /* .thumbnail {
         width: 20rem;
-    }
+    } */
 
     .review-container .main-content {
         display: grid;
@@ -175,6 +183,9 @@
 }
 
 @media (min-width: 1440px) {
+    .book-review {
+        grid-template-columns: 25% 75%;
+    }
 }
 
 @media (min-width: 1600px) {
