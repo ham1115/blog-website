@@ -20,8 +20,7 @@ This website is created to provide a space for documenting the user's reading ex
 - JavaScript
 
 ## Video Presentation
-**Project Overview Video**
-
+[InkWell - My Personal Journey Video Presentation](https://drive.google.com/file/d/1l7DyiCNDo9YLX4rW34WuX1BZPpg39WEU/view?usp=sharing)
 - **Date Presented:** October 22, 2024
 - **Duration:** 27:30 minutes
 - **Presenters:** Alexandra Sofia Flores, Ryan Bojos, Mart Navarro, Irvin David
