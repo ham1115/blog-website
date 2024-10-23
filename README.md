@@ -6,7 +6,7 @@
 A modern, responsive personal blog website that showcases my journey through books, experiences, and reflections. This project serves as a digital diary and a platform for making your own personalized blog without having to make your own website.
 
 ## Project Purpose
-This website is created to provide a space for documenting my reading experiences, personal anecdotes, and various hobbies. It reflects my passion for writing and storytelling, aiming to connect with readers on a more personal level.
+This website is created to provide a space for documenting the user's reading experiences, personal anecdotes, and various hobbies. It reflects our passion for writing and storytelling.
 
 ## Features
 - **Responsive design** for optimal viewing on desktop, tablet, and mobile devices
