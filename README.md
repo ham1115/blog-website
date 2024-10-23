@@ -27,6 +27,8 @@ This website is created to provide a space for documenting the user's reading ex
 - **Presenters:** Alexandra Sofia Flores, Ryan Bojos, Mart Navarro, Irvin David
 - **Substituted RAW Link (Google Drive):** https://drive.google.com/file/d/1l7DyiCNDo9YLX4rW34WuX1BZPpg39WEU/view?usp=sharing
 
+## Figma Mockup Design 
+- **Link:** https://www.figma.com/design/bWLCprQ6i3gRFP3QznLAZT/Web-Mockup-Design?node-id=0-1&t=wegaO1IBg2TXN7Xa-1
 ## Acknowledgments
 - Ma'am Raquel B. Rivera for teaching us how to create websites that will help with our future projects.
 
