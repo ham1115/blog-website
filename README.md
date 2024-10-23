@@ -13,6 +13,7 @@ This website is created to provide a space for documenting the user's reading ex
 - **Blog section** for sharing thoughts, reviews, and experiences
 - **Gallery page** to showcase reviews of books and other reading materials.
 - **About section** detailing my journey and interests
+- **Milestones page** to show all your favorite moments throughout the years
 
 ## Technology Stack
 - HTML5
