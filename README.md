@@ -19,11 +19,6 @@ This website is created to provide a space for documenting the user's reading ex
 - CSS3
 - JavaScript
 
-## Setup Instructions
-1. Clone the repository
-   ```bash
-   git clone https://github.com/ham1115/blog-website
-
 ## Video Presentation
 **Project Overview Video**
 
